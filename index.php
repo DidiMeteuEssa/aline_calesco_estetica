@@ -22,7 +22,7 @@
             <nav>
                 <ul class="opcao_procedimento">
                     <li><a href="cadastro_clientes.php">Cadastro de Clientes</a></li>
-                    <li><a href="">Alteração de Clientes</a></li>
+                    <li><a href="alterar_clientes.php">Alteração de Clientes</a></li>
                 </ul>
                 <ul class="opcao_procedimento">
                     <li><a href="">Tratamento de Melasma</a></li>

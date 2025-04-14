@@ -7,7 +7,7 @@
 
 :root {
     --cor-branco: white;
-    --cor-marrom-claro: rgb(73, 39, 39);
+    --cor-marrom-claro: #492727;
     --cor-rosa-claro: #e7cfd2;
     --cor-fundo: #ffedec;
 }
@@ -28,6 +28,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('/background_imagem.png');
+    background-size: 300px 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main {
@@ -68,6 +73,10 @@ h2 {
     font-size: 2rem;
 }
 
+h2>a {
+    text-decoration: underline;
+}
+
 .form_cadastro_clientes-table {
     background-color: var(--cor-rosa-claro);
     margin: 0 auto;
@@ -105,6 +114,10 @@ button {
     background-color: var(--cor-marrom-claro);
     color: var(--cor-fundo);
     cursor: pointer;
+}
+
+#estado {
+    text-transform: uppercase;
 }
 
 .form_cadastro_clientes-table,

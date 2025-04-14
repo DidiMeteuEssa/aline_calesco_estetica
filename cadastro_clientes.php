@@ -19,7 +19,7 @@
     <main>
         <h2>Cadastro de Clientes / <a href="index.php">VOLTAR</a></h2>
         <section class="cadastro_clientes">
-            <form method="post" action="opr_cadastro_clientes.php" class="form_cadastro_clientes">
+            <form method="post" action="opr_cadastro_clientes.php" class="form_cadastro_clientes" onsubmit="return validarCampos()">
                 <table class="form_cadastro_clientes-table">
                     <tbody>
                         <tr>
@@ -28,7 +28,7 @@
                             <td><label for="endereco">Endereço</label></td>
                             <td><input type="text" id="endereco" name="endereco" placeholder="Digite o endereço" required></td>
                             <td><label for="tel_residencial">Telefone Residencial</label></td>
-                            <td><input type="text" id="tel_res" name="tel_res" placeholder="Digite o telefone residencial" required></td>
+                            <td><input type="text" id="tel_res" name="tel_res" placeholder="Digite o telefone residencial"></td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF</label></td>
@@ -36,7 +36,7 @@
                             <td><label for="cep">CEP</label></td>
                             <td><input type="text" id="cep" name="cep" placeholder="00000-000" required></td>
                             <td><label for="tel_comercial">Telefone Comercial</label></td>
-                            <td><input type="text" id="tel_com" name="tel_com" placeholder="Digite o telefone comercial" required></td>
+                            <td><input type="text" id="tel_com" name="tel_com" placeholder="Digite o telefone comercial"></td>
                         </tr>
                         <tr>
                             <td><label for="data_nasc">Data de Nascimeto</label></td>
@@ -56,7 +56,7 @@
                             <td></td>
                             <td></td>
                             <td><label for="estado">Estado</label></td>
-                            <td><input type="text" id="estado" name="estado" placeholder="SP / RJ / MG /..." required></td>
+                            <td><input type="text" id="estado" name="estado" placeholder="SP / RJ / MG /..." maxlength="2" required></td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,6 +69,11 @@
             Aline Calesco Estética &copy; 2025
         </p>
     </footer>
+
+
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
+    <script src="mascaras.js"></script>
+    <script src="validacao_clientes.js"></script>
 </body>
 
 </html>
