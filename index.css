@@ -90,6 +90,7 @@ h2 > a {
 .form_cadastro_clientes input,
 button,
 .alterar_clientes-table input,
+.anamnese_corporal_ficha-form input,
 .filtrar_clientes input {
     background-color: var(--cor-fundo);
     font-weight: 600;
@@ -101,7 +102,8 @@ button,
     border-radius: 0.5rem;
 }
 
-.form_cadastro_clientes button {
+.form_cadastro_clientes button,
+.anamnese_corporal_ficha-form button{
     display: block;
     background-color: var(--cor-rosa-claro);
     width: 7rem;

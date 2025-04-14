@@ -17,7 +17,7 @@
         <h1>Aline Calesco Estética</h1>
     </header>
     <main>
-        <h2>Alteração de Clientes / <a href="index.php">VOLTAR</a></h2>
+        <h2>Ficha de Anamnese de Avaliação Corporal / <a href="index.php">VOLTAR</a></h2>
         <section class="filtrar_clientes">
             <h3>Pesquisar cliente por seu nome</h3>
             <form action="" method="post">
@@ -50,13 +50,13 @@
                     <tr class="borda">
                         <th class="itens">Nome</th>
                         <th class="itens">CPF</th>
-                        <th class="itens" colspan="2">Editar</th>
+                        <th class="itens" colspan="2">Criar / Editar Ficha</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <tr>
-                            <form action="alterar_clientes_dados.php" method="post" class="alterar_clientes-form">
+                            <form action="ficha_anamnese_corporal.php" method="post" class="alterar_clientes-form">
                                 <input type="hidden" name="cpf_lista" value="<?= $row['cpf']; ?>">
                                 <input type="hidden" name="nome_lista" value="<?= $row['nome']; ?>">
                                 <input type="hidden" name="idade_lista" value="<?= $row['idade']; ?>">
@@ -78,7 +78,7 @@
                                     <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
                                 </td>
                                 <td>
-                                    <button type="submit" name="acao" value="editar">Editar este cliente</button>
+                                    <button type="submit" name="acao" value="editar">Criar / Editar Ficha</button>
                                 </td>
                             </form>
                         </tr>
