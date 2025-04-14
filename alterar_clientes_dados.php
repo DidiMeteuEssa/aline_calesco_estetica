@@ -1,3 +1,8 @@
+<?php
+$data_mysql = $_POST["data_nasc_lista"];
+$data_br = date('d/m/Y', strtotime($data_mysql));
+?>
+
 <!DOCTYPE html>
 <html lang="ptbr">
 
@@ -17,46 +22,47 @@
         <h1>Aline Calesco Estética</h1>
     </header>
     <main>
-        <h2>Cadastro de Clientes / <a href="index.php">VOLTAR</a></h2>
+        <h2>Alteração de Clientes / <a href="alterar_clientes.php">VOLTAR</a></h2>
         <section class="cadastro_clientes">
-            <form method="post" action="opr_cadastro_clientes.php" class="form_cadastro_clientes" onsubmit="return validarCampos(1)">
+            <form method="post" action="opr_alterar_clientes.php" class="form_cadastro_clientes" onsubmit="return validarCampos(2)">
+                <input type="hidden" name="cpf_anterior" value="<?= $_POST["cpf_lista"]; ?>">
                 <table class="form_cadastro_clientes-table">
                     <tbody>
                         <tr>
                             <td><label for="nome">Nome</label></td>
-                            <td><input type="text" id="nome" name="nome" placeholder="Digite o nome" required></td>
+                            <td><input type="text" id="nome" name="nome" placeholder="Digite o nome" value="<?= $_POST["nome_lista"]; ?>" required></td>
                             <td><label for="endereco">Endereço</label></td>
-                            <td><input type="text" id="endereco" name="endereco" placeholder="Digite o endereço" required></td>
+                            <td><input type="text" id="endereco" name="endereco" placeholder="Digite o endereço" value="<?= $_POST["endereco_lista"]; ?>" required></td>
                             <td><label for="tel_residencial">Telefone Residencial</label></td>
-                            <td><input type="text" id="tel_res" name="tel_res" placeholder="Digite o telefone residencial"></td>
+                            <td><input type="text" id="tel_res" name="tel_res" placeholder="Digite o telefone residencial" value="<?= $_POST["tel_res_lista"]; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF</label></td>
-                            <td><input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required></td>
+                            <td><input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" value="<?= $_POST["cpf_lista"]; ?>" required></td>
                             <td><label for="cep">CEP</label></td>
-                            <td><input type="text" id="cep" name="cep" placeholder="00000-000" required></td>
+                            <td><input type="text" id="cep" name="cep" placeholder="00000-000" value="<?= $_POST["cep_lista"]; ?>" required></td>
                             <td><label for="tel_comercial">Telefone Comercial</label></td>
-                            <td><input type="text" id="tel_com" name="tel_com" placeholder="Digite o telefone comercial"></td>
+                            <td><input type="text" id="tel_com" name="tel_com" placeholder="Digite o telefone comercial" value="<?= $_POST["tel_com_lista"]; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="data_nasc">Data de Nascimeto</label></td>
-                            <td><input type="text" id="data_nasc" name="data_nasc" placeholder="dd/mm/aaaa" required></td>
+                            <td><input type="text" id="data_nasc" name="data_nasc" placeholder="dd/mm/aaaa" value="<?= $data_br  ?>" required></td>
                             <td><label for="cidade">Cidade</label></td>
-                            <td><input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required></td>
+                            <td><input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" value="<?= $_POST["cidade_lista"]; ?>" required></td>
                             <td><label for="celular">Telefone Celular</label></td>
-                            <td><input type="text" id="celular" name="celular" placeholder="(00) 00000 - 0000" required></td>
+                            <td><input type="text" id="celular" name="celular" placeholder="(00) 00000 - 0000" value="<?= $_POST["celular_lista"]; ?>" required></td>
                         </tr>
                         <tr>
                             <td><label for="idade">Idade</label></td>
-                            <td><input type="text" id="idade" name="idade" placeholder="Digite a idade" required></td>
+                            <td><input type="text" id="idade" name="idade" placeholder="Digite a idade" value="<?= $_POST["idade_lista"]; ?>" required></td>
                             <td><label for="bairro">Bairro</label></td>
-                            <td><input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required></td>
+                            <td><input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" value="<?= $_POST["bairro_lista"]; ?>" required></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td><label for="estado">Estado</label></td>
-                            <td><input type="text" id="estado" name="estado" placeholder="SP / RJ / MG /..." maxlength="2" required></td>
+                            <td><input type="text" id="estado" name="estado" placeholder="SP / RJ / MG /..." maxlength="2" value="<?= $_POST["estado_lista"]; ?>" required></td>
                         </tr>
                     </tbody>
                 </table>

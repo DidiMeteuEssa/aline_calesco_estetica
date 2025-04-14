@@ -1,4 +1,4 @@
-function validarCampos() {
+function validarCampos(opr) {
     const cpf = document.getElementById("cpf").value.replace(/\D/g, '');
     const cep = document.getElementById("cep").value.replace(/\D/g, '');
     const celular = document.getElementById("celular").value.replace(/\D/g, '');
@@ -28,7 +28,14 @@ function validarCampos() {
         return false;
     }
 
-    alert("Cadastro realizado com sucesso!");
+    if (opr==1) {
+        alert("Cadastro realizada com sucesso!");
+    }
+
+    if(opr == 2) {
+        alert("Alteração realizada com sucesso!");
+    }
+    
     return true;
 }
 
