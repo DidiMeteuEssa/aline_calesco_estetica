@@ -1,7 +1,6 @@
 <?php
 include("conexao_db.php");
 
-$id = 1;
 $cpf = $_POST["cpf_ficha_corporal"];
 $usa_cosmetico = $_POST["usa_cosmetico"];
 $qual_cosmetico = $_POST["qual_cosmeticos"];
@@ -30,9 +29,14 @@ $qual_parte_corpo = $_POST["qual_parte_corpo"];
 $tempo_disfuncao = $_POST["tempo_disfuncao"];
 $status_doenca = $_POST["status_doenca"];
 
-$sql_status = "select status_ficha_corporal from clientes where cpf = $cpf";
+$sql_status = $conn->prepare("SELECT status_ficha_corporal FROM clientes WHERE cpf = ?");
+$sql_status->bind_param("s", $cpf);
+$sql_status->execute();
+$result = $sql_status->get_result();
+$row = $result->fetch_assoc();
+$status = $row['status_ficha_corporal'];
 
-if ($sql_status == 1) {
+if ($status === 1) {
     $sql = "UPDATE ficha_anamnese_corporal SET
     usa_cosmetico = ?,
     qual_cosmetico = ?,
@@ -40,7 +44,7 @@ if ($sql_status == 1) {
     ingere_alcool = ?,
     qtde_copos_agua = ?,
     qualidade_sono = ?,
-    qualidade_alientacao = ?,
+    qualidade_alimentacao = ?,
     dieta_rigorosa = ?,
     patologia_pele = ?,
     toma_medicacao = ?,
@@ -93,12 +97,13 @@ WHERE cliente = ?";
             $qual_parte_corpo,
             $tempo_disfuncao,
             $status_doenca,
-            $cpf 
+            $cpf
         );
+    } else {
+        echo "Erro ao preparar statement: " . $conn->error;
     }
 } else {
     $sql = "INSERT INTO ficha_anamnese_corporal (
-        id,
         cliente,
         usa_cosmetico,
         qual_cosmetico,
@@ -106,7 +111,7 @@ WHERE cliente = ?";
         ingere_alcool,
         qtde_copos_agua,
         qualidade_sono,
-        qualidade_alientacao,
+        qualidade_alimentacao,
         dieta_rigorosa,
         patologia_pele,
         toma_medicacao,
@@ -126,14 +131,13 @@ WHERE cliente = ?";
         qual_doenca_acomete_corpo,
         tempo_disfuncao,
         status_disfuncao
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
         $stmt->bind_param(
-            "isssssssssssssssssssssssssss",
-            $id,
+            "sssssssssssssssssssssssssss",
             $cpf,
             $usa_cosmetico,
             $qual_cosmetico,
@@ -165,16 +169,16 @@ WHERE cliente = ?";
     } else {
         echo "Erro ao preparar statement: " . $conn->error;
     }
+}
 
-    if ($stmt->execute()) {
-        if ($sql_status === 0) {
-            $update = $conn->prepare("UPDATE clientes SET status_ficha_corporal= 1 WHERE cpf = ?");
-            $update->bind_param("s", $cpf);
-            $update->execute();
-        }
-        header("Location: anamnese_corporal_pesquisa.php");
-        exit;
-    } else {
-        echo "Erro ao inserir dados: " . $stmt->error;
+if ($stmt->execute()) {
+    if ($status === 0) {
+        $update = $conn->prepare("UPDATE clientes SET status_ficha_corporal = 1 WHERE cpf = ?");
+        $update->bind_param("s", $cpf);
+        $update->execute();
     }
+    header("Location: anamnese_corporal_pesquisa.php");
+    exit;
+} else {
+    echo "Erro ao inserir dados: " . $stmt->error;
 }

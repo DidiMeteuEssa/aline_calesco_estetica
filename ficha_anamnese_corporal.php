@@ -7,7 +7,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $cpf_sql);
 $stmt->execute();
 $resultado = $stmt->get_result();
-$linha = $resultado->fetch_assoc()
+$linha = $resultado->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="ptbr">
@@ -71,10 +71,10 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="fumante" value="sim" required> Sim
+                                        <input type="radio" name="fumante" value="sim" <?= isset($linha['fumante']) && $linha['fumante'] === 'sim' ? 'checked' : '' ?> required> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="fumante" value="nao" required> Nao
+                                        <input type="radio" name="fumante" value="nao" <?= isset($linha['fumante']) && $linha['fumante'] === 'nao' ? 'checked' : '' ?> required> Nao
                                     </label>
                                 </div>
                             </td>
@@ -86,17 +86,17 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="ingere_alcool" value="sim" required> Sim
+                                        <input type="radio" name="ingere_alcool" value="sim" required <?= isset($linha['ingere_alcool']) && $linha['ingere_alcool'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="ingere_alcool" value="nao" required> Nao
+                                        <input type="radio" name="ingere_alcool" value="nao" required <?= isset($linha['ingere_alcool']) && $linha['ingere_alcool'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qtde_agua">Quantos copos de água por dia?</label></td>
-                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="50"></td>
+                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="50" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -105,13 +105,13 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="qualidade_sono" value="bom" required> Bom
+                                        <input type="radio" name="qualidade_sono" value="bom" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'bom' ? 'checked' : '' ?>> Bom
                                     </label>
                                     <label>
-                                        <input type="radio" name="qualidade_sono" value="ruim" required> Ruim
+                                        <input type="radio" name="qualidade_sono" value="ruim" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'ruim' ? 'checked' : '' ?>> Ruim
                                     </label>
                                     <label>
-                                        <input type="radio" name="qualidade_sono" value="péssimo" required> Péssimo
+                                        <input type="radio" name="qualidade_sono" value="pessimo" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'pessimo' ? 'checked' : '' ?>> Péssimo
                                     </label>
                                 </div>
                             </td>
@@ -123,13 +123,13 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="bom" required> Bom
+                                        <input type="radio" name="qualidade_alimentacao" value="bom" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'bom' ? 'checked' : '' ?>> Bom
                                     </label>
                                     <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="ruim" required> Ruim
+                                        <input type="radio" name="qualidade_alimentacao" value="ruim" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'ruim' ? 'checked' : '' ?>> Ruim
                                     </label>
                                     <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="péssimo" required> Péssimo
+                                        <input type="radio" name="qualidade_alimentacao" value="pessimo" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'pessimo' ? 'checked' : '' ?>> Péssimo
                                     </label>
                                 </div>
                             </td>
@@ -141,10 +141,10 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="dieta" value="sim" required> Sim
+                                        <input type="radio" name="dieta" value="sim" required <?= isset($linha['dieta_rigorosa']) && $linha['dieta_rigorosa'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="dieta" value="nao" required> Nao
+                                        <input type="radio" name="dieta" value="nao" required <?= isset($linha['dieta_rigorosa']) && $linha['dieta_rigorosa'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
@@ -162,13 +162,13 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="patologia_pele" value="hipotiroidismo" required> Hipotiroidismo
+                                        <input type="radio" name="patologia_pele" value="hipotireoidismo" required <?= isset($linha['patologia_pele']) && $linha['patologia_pele'] === 'hipotireoidismo' ? 'checked' : '' ?>> Hipotiroidismo
                                     </label>
                                     <label>
-                                        <input type="radio" name="patologia_pele" value="hipertiroidismo" required> Hipertiroidismo
+                                        <input type="radio" name="patologia_pele" value="hipertiroidismo" required <?= isset($linha['patologia_pele']) && $linha['patologia_pele'] === 'hipertiroidismo' ? 'checked' : '' ?>> Hipertiroidismo
                                     </label>
                                     <label>
-                                        <input type="radio" name="patologia_pele" value="nao" required> Não
+                                        <input type="radio" name="patologia_pele" value="nao" required <?= isset($linha['patologia_pele']) && $linha['patologia_pele'] === 'nao' ? 'checked' : '' ?>> Não
                                     </label>
                                 </div>
                             </td>
@@ -180,21 +180,21 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="toma_medicamento" value="sim" required> Sim
+                                        <input type="radio" name="toma_medicamento" value="sim" required <?= isset($linha['toma_medicacao']) && $linha['toma_medicacao'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="toma_medicamento" value="nao" required> Nao
+                                        <input type="radio" name="toma_medicamento" value="nao" required <?= isset($linha['toma_medicacao']) && $linha['toma_medicacao'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qual_medicamento">Quais medicamentos?</label></td>
-                            <td><input type="text" id="qual_medicamento" name="qual_medicamento" maxlength="30"></td>
+                            <td><input type="text" id="qual_medicamento" name="qual_medicamento" maxlength="30" value="<?= isset($linha['qual_medicacao']) ? $linha['qual_medicacao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="tempo_medicacao">Há quanto tempo toma medicamentos?</label></td>
-                            <td><input type="text" id="tempo_medicacao" name="tempo_medicacao" maxlength="30"></td>
+                            <td><input type="text" id="tempo_medicacao" name="tempo_medicacao" maxlength="30" value="<?= isset($linha['quanto_tempo_medicacao']) ? $linha['quanto_tempo_medicacao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -203,17 +203,17 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="suplemento_oral" value="sim" required> Sim
+                                        <input type="radio" name="suplemento_oral" value="sim" required <?= isset($linha['usa_suplemento_oral']) && $linha['usa_suplemento_oral'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="suplemento_oral" value="nao" required> Nao
+                                        <input type="radio" name="suplemento_oral" value="nao" required <?= isset($linha['usa_suplemento_oral']) && $linha['usa_suplemento_oral'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="quais_suplementos">Quais suplementos?</label></td>
-                            <td><input type="text" id="quais_suplementos" name="quais_suplementos" maxlength="30"></td>
+                            <td><input type="text" id="quais_suplementos" name="quais_suplementos" maxlength="30" value="<?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -222,51 +222,51 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="trombose" value="sim" required> Sim
+                                        <input type="radio" name="trombose" value="sim" required <?= isset($linha['trombose']) && $linha['trombose'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="trombose" value="nao" required> Nao
+                                        <input type="radio" name="trombose" value="nao" required <?= isset($linha['trombose']) && $linha['trombose'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qual_trombose">Qual tipo de trombose?</label></td>
-                            <td><input type="text" id="qual_trombose" name="qual_trombose" maxlength="30"></td>
+                            <td><input type="text" id="qual_trombose" name="qual_trombose" maxlength="30" value="<?= isset($linha['qual_trombose']) ? $linha['qual_trombose'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Possiu antecendentes oncológicos?</p>
+                                <p>Possui antecendentes oncológicos?</p>
                             </td>
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="antecedentes_oncologico" value="sim" required> Sim
+                                        <input type="radio" name="antecedentes_oncologico" value="sim" required <?= isset($linha['antecendentes_oncologicos']) && $linha['antecendentes_oncologicos'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="antecedentes_oncologico" value="nao" required> Nao
+                                        <input type="radio" name="antecedentes_oncologico" value="nao" required <?= isset($linha['antecendentes_oncologicos']) && $linha['antecendentes_oncologicos'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Possiu diabetes?</p>
+                                <p>Possui diabetes?</p>
                             </td>
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="diabetes" value="sim" required> Sim
+                                        <input type="radio" name="diabetes" value="sim" required <?= isset($linha['diabetes']) && $linha['diabetes'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="diabetes" value="nao" required> Nao
+                                        <input type="radio" name="diabetes" value="nao" required <?= isset($linha['diabetes']) && $linha['diabetes'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qual_diabetes">Qual tipo de diabetes?</label></td>
-                            <td><input type="text" id="qual_diabetes" name="qual_diabetes" maxlength="50"></td>
+                            <td><input type="text" id="qual_diabetes" name="qual_diabetes" maxlength="50" value="<?= isset($linha['qual_diabetes']) ? $linha['qual_diabetes'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -275,17 +275,17 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="cirurgia_plastica" value="sim" required> Sim
+                                        <input type="radio" name="cirurgia_plastica" value="sim" required <?= isset($linha['cirurgia_plastica_estetica']) && $linha['cirurgia_plastica_estetica'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="cirurgia_plastica" value="nao" required> Nao
+                                        <input type="radio" name="cirurgia_plastica" value="nao" required <?= isset($linha['cirurgia_plastica_estetica']) && $linha['cirurgia_plastica_estetica'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qual_cirurgia">Qual cirurgia?</label></td>
-                            <td><input type="text" id="qual_cirurgia" name="qual_cirurgia" maxlength="30"></td>
+                            <td><input type="text" id="qual_cirurgia" name="qual_cirurgia" maxlength="30" value="<?= isset($linha['qual_cirurgia_plastica']) ? $linha['qual_cirurgia_plastica'] : ''; ?>"></td>
                         </tr>
 
                         <tr>
@@ -295,7 +295,7 @@ $linha = $resultado->fetch_assoc()
                         </tr>
                         <tr>
                             <td><label for="queixa_alopecia">Queixa principal</label></td>
-                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="300"></textarea></td>
+                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="300"><?= isset($linha['queixa_alopecia']) ? $linha['queixa_alopecia'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -304,21 +304,21 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="acomete_corpo" value="sim" required> Sim
+                                        <input type="radio" name="acomete_corpo" value="sim" required <?= isset($linha['doenca_acomete_corpo']) && $linha['doenca_acomete_corpo'] === 'sim' ? 'checked' : '' ?>> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="acomete_corpo" value="nao" required> Nao
+                                        <input type="radio" name="acomete_corpo" value="nao" required <?= isset($linha['doenca_acomete_corpo']) && $linha['doenca_acomete_corpo'] === 'nao' ? 'checked' : '' ?>> Nao
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="qual_parte_corpo">Quais partes do corpo?</label></td>
-                            <td><input type="text" id="qual_parte_corpo" name="qual_parte_corpo" maxlength="30"></td>
+                            <td><input type="text" id="qual_parte_corpo" name="qual_parte_corpo" maxlength="30" value="<?= isset($linha['qual_doenca_acomete_corpo']) ? $linha['qual_doenca_acomete_corpo'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="tempo_disfuncao">Há quanto começou essa disfunção?</label></td>
-                            <td><input type="text" id="tempo_disfuncao" name="tempo_disfuncao" maxlength="30"></td>
+                            <td><input type="text" id="tempo_disfuncao" name="tempo_disfuncao" maxlength="30" value="<?= isset($linha['tempo_disfuncao']) ? $linha['tempo_disfuncao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -327,13 +327,13 @@ $linha = $resultado->fetch_assoc()
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="status_doenca" value="estavel" required> Estável
+                                        <input type="radio" name="status_doenca" value="estavel" required <?= isset($linha['status_disfuncao']) && $linha['status_disfuncao'] === 'estavel' ? 'checked' : '' ?>> Estável
                                     </label>
                                     <label>
-                                        <input type="radio" name="status_doenca" value="aumentando" required> Aumentando
+                                        <input type="radio" name="status_doenca" value="aumentando" required <?= isset($linha['status_disfuncao']) && $linha['status_disfuncao'] === 'aumentando' ? 'checked' : '' ?>> Aumentando
                                     </label>
                                     <label>
-                                        <input type="radio" name="status_doenca" value="diminuindo" required> Diminuindo
+                                        <input type="radio" name="status_doenca" value="diminuindo" required <?= isset($linha['status_disfuncao']) && $linha['status_disfuncao'] === 'diminuindo' ? 'checked' : '' ?>> Diminuindo
                                     </label>
                                 </div>
                             </td>
