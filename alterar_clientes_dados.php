@@ -14,7 +14,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>Cadastro</title>
+    <title>Alteração</title>
 </head>
 
 <body>

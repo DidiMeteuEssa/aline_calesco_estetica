@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>Alteração</title>
+    <title>Anamnese Corporal</title>
 </head>
 
 <body>
@@ -57,20 +57,8 @@
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <tr>
                             <form action="ficha_anamnese_corporal.php" method="post" class="alterar_clientes-form">
-                                <input type="hidden" name="cpf_lista" value="<?= $row['cpf']; ?>">
-                                <input type="hidden" name="nome_lista" value="<?= $row['nome']; ?>">
-                                <input type="hidden" name="idade_lista" value="<?= $row['idade']; ?>">
-                                <input type="hidden" name="data_nasc_lista" value="<?= $row['data_nasc']; ?>">
-
-                                <input type="hidden" name="endereco_lista" value="<?= $row['endereco']; ?>">
-                                <input type="hidden" name="cep_lista" value="<?= $row['cep']; ?>">
-                                <input type="hidden" name="cidade_lista" value="<?= $row['cidade']; ?>">
-                                <input type="hidden" name="bairro_lista" value="<?= $row['bairro']; ?>">
-                                <input type="hidden" name="estado_lista" value="<?= $row['estado']; ?>">
-
-                                <input type="hidden" name="tel_res_lista" value="<?= $row['tel_res']; ?>">
-                                <input type="hidden" name="tel_com_lista" value="<?= $row['tel_com']; ?>">
-                                <input type="hidden" name="celular_lista" value="<?= $row['tel_cel']; ?>">
+                                <input type="hidden" name="cpf_corporal" value="<?= $row['cpf']; ?>">
+                                <input type="hidden" name="nome_corporal" value="<?= $row['nome']; ?>">
                                 <td>
                                     <input type="text" value="<?= $row['nome']; ?>" disabled>
                                 </td>

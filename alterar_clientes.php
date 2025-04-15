@@ -20,7 +20,7 @@
         <h2>Alteração de Clientes / <a href="index.php">VOLTAR</a></h2>
         <section class="filtrar_clientes">
             <h3>Pesquisar cliente por seu nome</h3>
-            <form action="" method="post">
+            <form action="" method="post" class="filtrar_clientes-form">
                 <input type="text" name="pesquisa_cliente_nome">
                 <button type="submit">Pesquisar</button>
             </form>
