@@ -29,15 +29,15 @@ $linha = $resultado->fetch_assoc();
     </header>
     <main>
         <h2>Ficha de Anamnese Corporal / <a href="anamnese_corporal_pesquisa.php">VOLTAR</a></h2>
-        <section class="cliente_ficha_corporal">
+        <section class="cliente_ficha">
             <h3>CLIENTE SELECIONADO</h3>
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_corporal"]; ?>" disabled>
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_corporal"]; ?>" disabled>
         </section>
-        <section class="ficha_corporal_dados">
-            <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha_corporal-form">
+        <section class="ficha_dados">
+            <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form">
                 <input type="hidden" name="cpf_ficha_corporal" value="<?= $_POST["cpf_corporal"]; ?>">
-                <table class="ficha_corporal-table">
+                <table class="ficha-table">
 
                     <tbody>
                         <tr>

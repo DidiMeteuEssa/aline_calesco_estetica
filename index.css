@@ -81,9 +81,8 @@ h2 > a {
     text-decoration: underline;
 }
 
-.form_cadastro_clientes-table,
-.alterar_clientes-table,
-.ficha_corporal-table {
+.data-table,
+.ficha-table {
     background-color: var(--cor-rosa-claro);
     margin: 0 auto;
     padding: 1rem;
@@ -93,11 +92,10 @@ h2 > a {
     box-shadow: 4px 3px 12px -4px rgba(0, 0, 0, 0.68);
 }
 
-.form_cadastro_clientes input,
-.alterar_clientes-table input,
-.ficha_corporal-form input,
+.data-table input,
+.ficha-form input,
 .filtrar_clientes input,
-.cliente_ficha_corporal input,
+.cliente_ficha input,
 button {
     background-color: var(--cor-fundo);
     font-weight: 600;
@@ -109,18 +107,19 @@ button {
     border-radius: 0.5rem;
 }
 
-.ficha_corporal-table input[type="radio"] {
+.ficha-table input[type="radio"] {
     width: 1rem;
     height: 1rem;
     margin-right: 0.2rem;
 }
 
-.ficha_corporal-table label + label{
+.fichal-table label + label{
     margin-left: 1rem;
 }
 
-.form_cadastro_clientes button,
-.ficha_corporal-form button {
+
+.data-form button,
+.ficha-form button {
     display: block;
     background-color: var(--cor-rosa-claro);
     width: 7rem;
@@ -137,7 +136,7 @@ button:hover  {
     cursor: pointer;
 }
 
-.alterar_clientes {
+.data {
     margin-top: 1.6rem;
 }
 
@@ -146,7 +145,7 @@ button:hover  {
 }
 
 .filtrar_clientes,
-.cliente_ficha_corporal {
+.cliente_ficha {
     padding: 1rem;
     text-align: center;
     background-color: var(--cor-rosa-claro);
@@ -157,15 +156,15 @@ button:hover  {
 }
 
 .filtrar_clientes h3,
-.cliente_ficha_corporal h3 {
+.cliente_ficha h3 {
     margin-bottom: 1rem;
 }
 
-.ficha_corporal-form {
+.ficha-form {
     text-align: center;
 }
 
-.ficha_corporal-form td {
+.ficha-form td {
     text-align: left;
 }
 
@@ -175,47 +174,41 @@ button:hover  {
     text-align: left;
 }
 
-.form_cadastro_clientes-table,
 .opcao_procedimento,
 .filtrar_clientes,
-.cliente_ficha_corporal,
+.cliente_ficha,
 h2 {
     margin-top: 4rem;
 }
 
-.form_cadastro_clientes-table td,
-.alterar_clientes-table td,
-.ficha_corporal-table td{
+.data-table td,
+.ficha-table td {
     padding: 0 1rem;
 }
 
-.form_cadastro_clientes-table thead {
-    font-size: 1.5em;
-}
-
-.cliente_ficha_corporal {
+.cliente_ficha {
     margin-bottom: 2rem;
 }
 
-.ficha_corporal-table {
+.ficha-table {
     display: inline-block;
     margin-bottom: 1rem;
 }
 
-.ficha_corporal-table td {
+.ficha-table td {
     height: 3rem;
 }
 
-.ficha_corporal-table + .ficha_corporal-table {
+.ficha-table + .ficha-table {
     margin-left: 1rem;
 }
 
-.ficha_corporal_dados {
+.ficha_dados {
     width: fit-content;
     margin: 0 auto;
 }
 
-.alterar_clientes-table button,
+.data-table button,
 .filtrar_clientes button {
     width: fit-content;
 }

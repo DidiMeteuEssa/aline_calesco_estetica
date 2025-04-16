@@ -21,19 +21,19 @@
         <?php 
         include("pesquisar.php");
         ?>
-        <section class="alterar_clientes">
-            <table class="alterar_clientes-table">
+        <section class="data">
+            <table class="data-table">
                 <thead>
-                    <tr class="borda">
-                        <th class="itens">Nome</th>
-                        <th class="itens">CPF</th>
-                        <th class="itens" colspan="2">Editar</th>
+                    <tr>
+                        <th>Nome</th>
+                        <th >CPF</th>
+                        <th colspan="2">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <tr>
-                            <form action="alterar_clientes_dados.php" method="post" class="alterar_clientes-form">
+                            <form action="alterar_clientes_dados.php" method="post" class="data-form">
                                 <input type="hidden" name="cpf_lista" value="<?= $row['cpf']; ?>">
                                 <input type="hidden" name="nome_lista" value="<?= $row['nome']; ?>">
                                 <input type="hidden" name="idade_lista" value="<?= $row['idade']; ?>">

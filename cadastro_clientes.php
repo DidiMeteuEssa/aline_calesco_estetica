@@ -18,9 +18,9 @@
     </header>
     <main>
         <h2>Cadastro de Clientes / <a href="index.php">VOLTAR</a></h2>
-        <section class="cadastro_clientes">
-            <form method="post" action="opr_cadastro_clientes.php" class="form_cadastro_clientes" onsubmit="return validarCampos(1)">
-                <table class="form_cadastro_clientes-table">
+        <section class="data">
+            <form method="post" action="opr_cadastro_clientes.php" class="data-form" onsubmit="return validarCampos(1)">
+                <table class="data-table">
                     <tbody>
                         <tr>
                             <td><label for="nome">Nome</label></td>
