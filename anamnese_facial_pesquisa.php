@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>Anamnese Corporal</title>
+    <title>Anamnese Facial</title>
 </head>
 
 <body>
