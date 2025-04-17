@@ -226,7 +226,8 @@ h2 {
     gap: 0.25rem;
 }
 
-#queixa_alopecia {
+#queixa_alopecia,
+#queixa_facial {
     height: 10rem;
     background-color: var(--cor-fundo);
     font-weight: 600;

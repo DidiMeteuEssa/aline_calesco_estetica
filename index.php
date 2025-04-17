@@ -26,7 +26,7 @@
                 </ul>
                 <ul class="opcao_procedimento">
                     <li><a href="">Tratamento de Melasma</a></li>
-                    <li><a href="">Anamnese de Avaliação Facial</a></li>
+                    <li><a href="anamnese_facial_pesquisa.php">Anamnese de Avaliação Facial</a></li>
                     <li><a href="anamnese_corporal_pesquisa.php">Anamnese de Avaliação Corporal</a></li>
                 </ul>
             </nav>
