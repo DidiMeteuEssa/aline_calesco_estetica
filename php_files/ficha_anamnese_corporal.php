@@ -31,8 +31,8 @@ $linha = $resultado->fetch_assoc();
         <h2>Ficha de Anamnese Corporal / <a href="anamnese_corporal_pesquisa.php">VOLTAR</a></h2>
         <section class="cliente_ficha">
             <h3>CLIENTE SELECIONADO</h3>
-            <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_corporal"]; ?>" disabled>
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_corporal"]; ?>" disabled>
+            <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_corporal"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
             <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form" onsubmit="return msgSucesso()">

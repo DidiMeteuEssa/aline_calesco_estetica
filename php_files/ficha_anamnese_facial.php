@@ -56,8 +56,8 @@ if (isset($linha_facial['pelos'])) {
         <h2>Ficha de Anamnese Facial / <a href="anamnese_facial_pesquisa.php">VOLTAR</a></h2>
         <section class="cliente_ficha">
             <h3>CLIENTE SELECIONADO</h3>
-            <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_facial"]; ?>" disabled>
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_facial"]; ?>" disabled>
+            <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_facial"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
             <form method="post" action="opr_ficha_anamnese_facial.php" class="ficha-form" onsubmit="return msgSucesso()">
@@ -778,6 +778,7 @@ if (isset($linha_facial['pelos'])) {
                         <tr>
                             <td>
                                 <p>Evolução cutânea: </p>
+                                <p style="font-size: .7rem;">(Selecione mais de um)</p>
                             </td>
                             <td>
                                 <div class="grupo_checkbox">
@@ -803,6 +804,7 @@ if (isset($linha_facial['pelos'])) {
                         <tr>
                             <td>
                                 <p>Alterações da epiderme: </p>
+                                <p style="font-size: .7rem;">(Selecione mais de um)</p>
                             </td>
                             <td style="padding: 0;">
                                 <table>
@@ -897,6 +899,7 @@ if (isset($linha_facial['pelos'])) {
                         <tr>
                             <td>
                                 <p>Lesões de pele: </p>
+                                <p style="font-size: .7rem;">(Selecione mais de um)</p>
                             </td>
                             <td style="padding: 0;">
                                 <table>
@@ -956,6 +959,7 @@ if (isset($linha_facial['pelos'])) {
                         <tr>
                             <td>
                                 <p>Cicatriz: </p>
+                                <p style="font-size: .7rem;">(Selecione mais de um)</p>
                             </td>
                             <td>
                                 <div class="grupo_checkbox">
@@ -977,6 +981,7 @@ if (isset($linha_facial['pelos'])) {
                         <tr>
                             <td>
                                 <p>Pelos: </p>
+                                <p style="font-size: .7rem;">(Selecione mais de um)</p>
                             </td>
                             <td>
                                 <div class="grupo_checkbox">
