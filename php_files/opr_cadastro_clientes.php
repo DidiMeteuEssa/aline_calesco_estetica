@@ -10,6 +10,8 @@ $cep = $_POST["cep"];
 $bairro = $_POST["bairro"];
 $cidade = $_POST["cidade"];
 $estado = $_POST["estado"];
+$profissao = $_POST["profissao"];
+$como_conheceu_trabalho = $_POST["como_conheceu_trabalho"];
 $tel_res = $_POST["tel_res"];
 $tel_com = $_POST["tel_com"];
 $celular = $_POST["celular"];
@@ -17,12 +19,12 @@ $celular = $_POST["celular"];
 $data_mysql = date('Y-m-d', strtotime(str_replace('/', '-', $data_nasc)));
 
 $sql = "INSERT INTO `clientes` (`cpf`, `nome`, `data_nasc`, `idade`, `endereco`, `cep`, `bairro`,
-                                `cidade`, `estado`, `tel_res`, `tel_com`, `tel_cel`) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                                `cidade`, `estado`, `profissao`, `como_conheceu_trabalho`, `tel_res`, `tel_com`, `tel_cel`) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
-    $stmt->bind_param("sssissssssss",
+    $stmt->bind_param("sssissssssssss",
         $cpf,
         $nome,
         $data_mysql,
@@ -32,6 +34,8 @@ if ($stmt) {
         $bairro,
         $cidade,
         $estado,
+        $profissao,
+        $como_conheceu_trabalho,
         $tel_res,
         $tel_com,
         $celular);

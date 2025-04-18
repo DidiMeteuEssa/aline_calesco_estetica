@@ -62,7 +62,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_cosmeticos">Quais cosméticos?</label></td>
-                            <td><input type="text" id="qual_cosmeticos" name="qual_cosmeticos" value="<?= isset($linha['qual_cosmetico']) ? $linha['qual_cosmetico'] : ''; ?>" maxlength="50"></td>
+                            <td><input type="text" id="qual_cosmeticos" name="qual_cosmeticos" value="<?= isset($linha['qual_cosmetico']) ? $linha['qual_cosmetico'] : ''; ?>" maxlength="200"></td>
                         </tr>
                         <tr>
                             <td>
@@ -96,7 +96,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qtde_agua">Quantos copos de água por dia?</label></td>
-                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="50" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>" required></td>
+                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="200" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>" required></td>
                         </tr>
                         <tr>
                             <td>
@@ -190,11 +190,11 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_medicamento">Quais medicamentos?</label></td>
-                            <td><input type="text" id="qual_medicamento" name="qual_medicamento" maxlength="30" value="<?= isset($linha['qual_medicacao']) ? $linha['qual_medicacao'] : ''; ?>"></td>
+                            <td><input type="text" id="qual_medicamento" name="qual_medicamento" maxlength="200" value="<?= isset($linha['qual_medicacao']) ? $linha['qual_medicacao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="tempo_medicacao">Há quanto tempo toma medicamentos?</label></td>
-                            <td><input type="text" id="tempo_medicacao" name="tempo_medicacao" maxlength="30" value="<?= isset($linha['quanto_tempo_medicacao']) ? $linha['quanto_tempo_medicacao'] : ''; ?>"></td>
+                            <td><input type="text" id="tempo_medicacao" name="tempo_medicacao" maxlength="200" value="<?= isset($linha['quanto_tempo_medicacao']) ? $linha['quanto_tempo_medicacao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -213,7 +213,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="quais_suplementos">Quais suplementos?</label></td>
-                            <td><input type="text" id="quais_suplementos" name="quais_suplementos" maxlength="30" value="<?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?>"></td>
+                            <td><input type="text" id="quais_suplementos" name="quais_suplementos" maxlength="200" value="<?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -232,7 +232,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_trombose">Qual tipo de trombose?</label></td>
-                            <td><input type="text" id="qual_trombose" name="qual_trombose" maxlength="30" value="<?= isset($linha['qual_trombose']) ? $linha['qual_trombose'] : ''; ?>"></td>
+                            <td><input type="text" id="qual_trombose" name="qual_trombose" maxlength="200" value="<?= isset($linha['qual_trombose']) ? $linha['qual_trombose'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -266,7 +266,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_diabetes">Qual tipo de diabetes?</label></td>
-                            <td><input type="text" id="qual_diabetes" name="qual_diabetes" maxlength="50" value="<?= isset($linha['qual_diabetes']) ? $linha['qual_diabetes'] : ''; ?>"></td>
+                            <td><input type="text" id="qual_diabetes" name="qual_diabetes" maxlength="200" value="<?= isset($linha['qual_diabetes']) ? $linha['qual_diabetes'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>
@@ -285,7 +285,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_cirurgia">Qual cirurgia?</label></td>
-                            <td><input type="text" id="qual_cirurgia" name="qual_cirurgia" maxlength="30" value="<?= isset($linha['qual_cirurgia_plastica']) ? $linha['qual_cirurgia_plastica'] : ''; ?>"></td>
+                            <td><input type="text" id="qual_cirurgia" name="qual_cirurgia" maxlength="200" value="<?= isset($linha['qual_cirurgia_plastica']) ? $linha['qual_cirurgia_plastica'] : ''; ?>"></td>
                         </tr>
 
                         <tr>
@@ -295,7 +295,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="queixa_alopecia">Queixa principal</label></td>
-                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="300"><?= isset($linha['queixa_alopecia']) ? $linha['queixa_alopecia'] : ''; ?></textarea></td>
+                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="500"><?= isset($linha['queixa_alopecia']) ? $linha['queixa_alopecia'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -314,11 +314,11 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_parte_corpo">Quais partes do corpo?</label></td>
-                            <td><input type="text" id="qual_parte_corpo" name="qual_parte_corpo" maxlength="30" value="<?= isset($linha['qual_doenca_acomete_corpo']) ? $linha['qual_doenca_acomete_corpo'] : ''; ?>"></td>
+                            <td><input type="text" id="qual_parte_corpo" name="qual_parte_corpo" maxlength="200" value="<?= isset($linha['qual_doenca_acomete_corpo']) ? $linha['qual_doenca_acomete_corpo'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="tempo_disfuncao">Há quanto começou essa disfunção?</label></td>
-                            <td><input type="text" id="tempo_disfuncao" name="tempo_disfuncao" maxlength="30" value="<?= isset($linha['tempo_disfuncao']) ? $linha['tempo_disfuncao'] : ''; ?>"></td>
+                            <td><input type="text" id="tempo_disfuncao" name="tempo_disfuncao" maxlength="200" value="<?= isset($linha['tempo_disfuncao']) ? $linha['tempo_disfuncao'] : ''; ?>"></td>
                         </tr>
                         <tr>
                             <td>

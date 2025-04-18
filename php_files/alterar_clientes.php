@@ -44,6 +44,8 @@
                                 <input type="hidden" name="cidade_lista" value="<?= $row['cidade']; ?>">
                                 <input type="hidden" name="bairro_lista" value="<?= $row['bairro']; ?>">
                                 <input type="hidden" name="estado_lista" value="<?= $row['estado']; ?>">
+                                <input type="hidden" name="profissao_lista" value="<?= $row['profissao']; ?>">
+                                <input type="hidden" name="como_conheceu_trabalho_lista" value="<?= $row['como_conheceu_trabalho']; ?>">
 
                                 <input type="hidden" name="tel_res_lista" value="<?= $row['tel_res']; ?>">
                                 <input type="hidden" name="tel_com_lista" value="<?= $row['tel_com']; ?>">

@@ -13,7 +13,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Alteração</title>
 </head>
 
@@ -57,10 +57,12 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
                             <td><input type="text" id="idade" name="idade" placeholder="Digite a idade" value="<?= $_POST["idade_lista"]; ?>" required></td>
                             <td><label for="bairro">Bairro</label></td>
                             <td><input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" value="<?= $_POST["bairro_lista"]; ?>" required></td>
+                            <td rowspan="2"><label for="como_conheceu_trabalho">Como conheceu meu trabalho?</label></td>
+                            <td rowspan="2"><textarea style="height: 7rem;" id="como_conheceu_trabalho" name="como_conheceu_trabalho" placeholder="Digite como conheceu" maxlength="100" required><?= $_POST["como_conheceu_trabalho_lista"]; ?></textarea>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><label for="profissao">Profissão</label></td>
+                            <td><input type="text" id="profissao" value="<?= $_POST["profissao_lista"]; ?>" name="profissao" placeholder="Digite a profissão" maxlength="30" required></td>
                             <td><label for="estado">Estado</label></td>
                             <td><input type="text" id="estado" name="estado" placeholder="SP / RJ / MG /..." maxlength="2" value="<?= $_POST["estado_lista"]; ?>" required></td>
                         </tr>
