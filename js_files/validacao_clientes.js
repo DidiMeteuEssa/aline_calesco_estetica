@@ -31,7 +31,7 @@ function validarCampos(opr) {
         return false;
     }
 
-    if(ano - ano_nasc !==idade && ano - ano_nasc !== idade-1)
+    if(ano - ano_nasc !== idade && (ano - ano_nasc) - 1 !== idade)
     {
         alert("A idade não condiz com o a data de nascimento.");
         document.getElementById("idade").focus();

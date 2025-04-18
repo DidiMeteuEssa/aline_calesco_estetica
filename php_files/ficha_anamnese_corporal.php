@@ -19,7 +19,7 @@ $linha = $resultado->fetch_assoc();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Anamnese Corporal</title>
 </head>
 
@@ -35,7 +35,7 @@ $linha = $resultado->fetch_assoc();
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_corporal"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
-            <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form">
+            <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form" onsubmit="return msgSucesso()">
                 <input type="hidden" name="cpf_ficha_corporal" value="<?= $_POST["cpf_corporal"]; ?>">
                 <table class="ficha-table">
 
@@ -96,7 +96,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qtde_agua">Quantos copos de água por dia?</label></td>
-                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="50" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>"></td>
+                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="50" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>" required></td>
                         </tr>
                         <tr>
                             <td>
@@ -350,6 +350,13 @@ $linha = $resultado->fetch_assoc();
             Aline Calesco Estética &copy; 2025
         </p>
     </footer>
+
+    <script>
+        function msgSucesso(){
+            alert("Ficha salva com suceso!")
+            return true
+        }
+    </script>
 </body>
 
 </html>

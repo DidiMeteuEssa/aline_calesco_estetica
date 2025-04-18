@@ -13,7 +13,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="../index.css">
     <title>Alteração</title>
 </head>
 
@@ -78,8 +78,8 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
 
 
     <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
-    <script src="mascaras.js"></script>
-    <script src="validacao_clientes.js"></script>
+    <script src="../js_files/mascaras.js"></script>
+    <script src="../js_files/validacao_clientes.js"></script>
 </body>
 
 </html>

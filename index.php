@@ -21,13 +21,13 @@
             <h2>Escolha uma opção</h2>
             <nav>
                 <ul class="opcao_procedimento">
-                    <li><a href="cadastro_clientes.php">Cadastro de Clientes</a></li>
-                    <li><a href="alterar_clientes.php">Alteração de Clientes</a></li>
+                    <li><a href="/php_files/cadastro_clientes.php">Cadastro de Clientes</a></li>
+                    <li><a href="/php_files/alterar_clientes.php">Alteração de Clientes</a></li>
                 </ul>
                 <ul class="opcao_procedimento">
                     <li><a href="">Tratamento de Melasma</a></li>
-                    <li><a href="anamnese_facial_pesquisa.php">Anamnese de Avaliação Facial</a></li>
-                    <li><a href="anamnese_corporal_pesquisa.php">Anamnese de Avaliação Corporal</a></li>
+                    <li><a href="/php_files/anamnese_facial_pesquisa.php">Anamnese de Avaliação Facial</a></li>
+                    <li><a href="/php_files/anamnese_corporal_pesquisa.php">Anamnese de Avaliação Corporal</a></li>
                 </ul>
             </nav>
         </section>

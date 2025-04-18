@@ -108,7 +108,6 @@ $protocolo_facial = $_POST["protocolo_facial"];
 $antes_depois_facial = $_POST["antes_depois_facial"];
 $redes_sociais_facial = $_POST["redes_sociais_facial"];
 $acordo_tratamento_facial = $_POST["acordo_tratamento_facial"];
-$assinatura_facial = $_POST["assinatura_facial"];
 
 $sql_status_facial = $conn->prepare("SELECT status_ficha_facial FROM clientes WHERE cpf = ?");
 $sql_status_facial->bind_param("s", $cpf_facial);

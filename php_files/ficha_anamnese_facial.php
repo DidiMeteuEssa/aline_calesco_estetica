@@ -44,7 +44,7 @@ if (isset($linha_facial['pelos'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Anamnese Facial</title>
 </head>
 
@@ -60,7 +60,7 @@ if (isset($linha_facial['pelos'])) {
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_facial"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
-            <form method="post" action="opr_ficha_anamnese_facial.php" class="ficha-form">
+            <form method="post" action="opr_ficha_anamnese_facial.php" class="ficha-form" onsubmit="return msgSucesso()">
                 <input type="hidden" name="cpf_ficha_facial" value="<?= $_POST["cpf_facial"]; ?>">
                 <table class="ficha-table">
 
@@ -1091,6 +1091,13 @@ if (isset($linha_facial['pelos'])) {
             Aline Calesco Estética &copy; 2025
         </p>
     </footer>
+
+    <script>
+        function msgSucesso(){
+            alert("Ficha salva com suceso!")
+            return true
+        }
+    </script>
 </body>
 
 </html>

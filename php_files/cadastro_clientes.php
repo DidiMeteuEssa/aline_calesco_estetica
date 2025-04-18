@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Cadastro</title>
 </head>
 
@@ -17,7 +17,7 @@
         <h1>Aline Calesco Estética</h1>
     </header>
     <main>
-        <h2>Cadastro de Clientes / <a href="index.php">VOLTAR</a></h2>
+        <h2>Cadastro de Clientes / <a href="../index.php">VOLTAR</a></h2>
         <section class="data">
             <form method="post" action="opr_cadastro_clientes.php" class="data-form" onsubmit="return validarCampos(1)">
                 <table class="data-table">
@@ -72,8 +72,8 @@
 
 
     <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
-    <script src="mascaras.js"></script>
-    <script src="validacao_clientes.js"></script>
+    <script src="../js_files/mascaras.js"></script>
+    <script src="../js_files/validacao_clientes.js"></script>
 </body>
 
 </html>

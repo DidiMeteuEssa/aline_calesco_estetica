@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <title>Anamnese Corporal</title>
 </head>
 
@@ -17,7 +17,7 @@
         <h1>Aline Calesco Estética</h1>
     </header>
     <main>
-        <h2>Ficha de Anamnese de Avaliação Corporal / <a href="index.php">VOLTAR</a></h2>
+        <h2>Ficha de Anamnese de Avaliação Corporal / <a href="../index.php">VOLTAR</a></h2>
         <?php 
         include("pesquisar.php");
         ?>

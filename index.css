@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('background_imagem.png');
+    background-image: url('img/background_imagem.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
