@@ -40,7 +40,7 @@ if ($stmt) {
         $tel_com,
         $celular);
     $stmt->execute();
-    header("Location: cadastro_clientes.php");
+    header("Location: ../index.php");
 } else {
     echo "Erro ao cadastrar usuário.";
 }

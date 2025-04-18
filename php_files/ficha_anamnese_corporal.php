@@ -38,7 +38,6 @@ $linha = $resultado->fetch_assoc();
             <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form" onsubmit="return msgSucesso()">
                 <input type="hidden" name="cpf_ficha_corporal" value="<?= $_POST["cpf_corporal"]; ?>">
                 <table class="ficha-table">
-
                     <tbody>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">

@@ -18,37 +18,51 @@
     </header>
     <main>
         <h2>Ficha de Anamnese de Avaliação Facial / <a href="../index.php">VOLTAR</a></h2>
-        <?php 
+        <?php
         include("pesquisar.php");
         ?>
         <section class="data">
             <table class="data-table">
-                <thead>
-                    <tr class="borda">
-                        <th >Nome</th>
-                        <th >CPF</th>
-                        <th colspan="2">Visualizar / Editar Ficha</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($row = $resultado->fetch_assoc()) { ?>
+                <?php
+                if ($numero_linhas > 0) {
+                ?>
+                    <thead>
                         <tr>
-                            <form action="ficha_anamnese_facial.php" method="post" class="data-form">
-                                <input type="hidden" name="cpf_facial" value="<?= $row['cpf']; ?>">
-                                <input type="hidden" name="nome_facial" value="<?= $row['nome']; ?>">
-                                <td>
-                                    <input type="text" value="<?= $row['nome']; ?>" disabled>
-                                </td>
-                                <td>
-                                    <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
-                                </td>
-                                <td>
-                                    <button type="submit" name="acao" value="editar">Visualizar / Editar Ficha</button>
-                                </td>
-                            </form>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th colspan="2">Visualizar / Editar Ficha</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $resultado->fetch_assoc()) { ?>
+                            <tr>
+                                <form action="ficha_anamnese_facial.php" method="post" class="data-form">
+                                    <input type="hidden" name="cpf_facial" value="<?= $row['cpf']; ?>">
+                                    <input type="hidden" name="nome_facial" value="<?= $row['nome']; ?>">
+                                    <td>
+                                        <input type="text" value="<?= $row['nome']; ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <button type="submit" name="acao" value="editar">Visualizar / Editar Ficha</button>
+                                    </td>
+                                </form>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                <?php
+                } else {
+                ?>
+                    <tr>
+                        <td>
+                            <p>Nenhum cliente cadastrado!</p>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </table>
         </section>
     </main>
