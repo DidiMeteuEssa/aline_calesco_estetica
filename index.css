@@ -214,7 +214,8 @@ h2 {
 }
 
 .grupo_radio,
-.grupo_checkbox {
+.grupo_checkbox,
+.grupo_fitzpatrick {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -222,7 +223,8 @@ h2 {
 }
 
 .grupo_radio label,
-.grupo_checkbox label {
+.grupo_checkbox label,
+.grupo_fitzpatrick {
     display: flex;
     align-items: center;
     gap: 0.25rem;

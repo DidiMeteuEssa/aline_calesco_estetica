@@ -27,7 +27,7 @@
                     <tr class="borda">
                         <th >Nome</th>
                         <th >CPF</th>
-                        <th colspan="2">Criar / Editar Ficha</th>
+                        <th colspan="2">Visualizar / Editar Ficha</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,7 @@
                                     <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
                                 </td>
                                 <td>
-                                    <button type="submit" name="acao" value="editar">Criar / Editar Ficha</button>
+                                    <button type="submit" name="acao" value="editar">Visualizar / Editar Ficha</button>
                                 </td>
                             </form>
                         </tr>
