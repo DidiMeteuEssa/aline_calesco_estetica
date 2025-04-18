@@ -1079,10 +1079,6 @@ if (isset($linha_facial['pelos'])) {
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td><label for="assinatura_facial">Assinatura do responsável:</label>
-                            <td><input type="text" id="assinatura_facial" name="assinatura_facial" maxlength="30" value="<?= isset($linha_facial['assinatura']) ? $linha_facial['assinatura'] : ''; ?>"></td>
-                        </tr>
                     </tbody>
                 </table>
 
