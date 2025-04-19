@@ -51,8 +51,6 @@
                             <td><input type="text" id="idade" name="idade" placeholder="Digite a idade" required></td>
                             <td><label for="bairro">Bairro</label></td>
                             <td><input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" required></td>
-                            <td rowspan="2"><label for="como_conheceu_trabalho">Como conheceu meu trabalho?</label></td>
-                            <td rowspan="2"><textarea style="height: 7rem;" id="como_conheceu_trabalho" name="como_conheceu_trabalho" placeholder="Digite como conheceu" maxlength="200" requiredid="como_conheceu_trabalho" name="como_conheceu_trabalho" placeholder="Digite como conheceu" maxlength="100" required></textarea>
                         </tr>
                         <tr>
                             <td><label for="profissao">Profissão</label></td>

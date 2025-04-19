@@ -19,12 +19,12 @@ $celular = $_POST["celular"];
 $data_mysql = date('Y-m-d', strtotime(str_replace('/', '-', $data_nasc)));
 
 $sql = "INSERT INTO `clientes` (`cpf`, `nome`, `data_nasc`, `idade`, `endereco`, `cep`, `bairro`,
-                                `cidade`, `estado`, `profissao`, `como_conheceu_trabalho`, `tel_res`, `tel_com`, `tel_cel`) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                                `cidade`, `estado`, `profissao`, `tel_res`, `tel_com`, `tel_cel`) 
+                                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
-    $stmt->bind_param("sssissssssssss",
+    $stmt->bind_param("sssisssssssss",
         $cpf,
         $nome,
         $data_mysql,
@@ -35,7 +35,6 @@ if ($stmt) {
         $cidade,
         $estado,
         $profissao,
-        $como_conheceu_trabalho,
         $tel_res,
         $tel_com,
         $celular);

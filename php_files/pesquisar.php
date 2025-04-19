@@ -14,16 +14,15 @@
         $stmt->bind_param("s", $like_nome);
         $stmt->execute();
         $resultado = $stmt->get_result();
-        $stmt->store_result();
-        $numero_linhas = $stmt->num_rows;
     } else {
         $sql = "SELECT * FROM clientes";
         $resultado = $conn->query($sql);
         if (!$resultado) {
             die("Erro ao buscar clientes: " . $conn->error);
         }
-        $numero_linhas = $resultado->num_rows;
     }
+    $numero_linhas = $resultado->num_rows;
     ?>
+
     <p>Para cancelar o filtro, pesquise com este campo vazio.</p>
 </section>

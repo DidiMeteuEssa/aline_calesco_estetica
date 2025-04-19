@@ -3,6 +3,7 @@
     padding: 0;
     font-weight: 600;
     color: var(--cor-marrom-claro);
+    
 }
 
 :root {
@@ -84,6 +85,10 @@ h2 > a {
 .data-table,
 .ficha-table {
     background-color: var(--cor-rosa-claro);
+    background-image: url('img/backgorund_ficha.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0 auto;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -119,7 +124,8 @@ button {
 }
 
 .data-form button,
-.ficha-form button {
+.ficha-form button,
+.ficha_melasma-form button {
     display: block;
     background-color: var(--cor-rosa-claro);
     width: 7rem;
@@ -238,17 +244,29 @@ textarea {
     height: 10rem;
     background-color: var(--cor-fundo);
     font-weight: 600;
-    width: 15rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 40rem;
+    padding: 1rem;
     border: 2px solid var(--cor-marrom-claro);
     border-radius: 0.5rem;
+    resize: none;
+}
+
+textarea[maxlength="500"] {
+    height: 5.6rem;
+}
+
+textarea[maxlength="300"] {
+    height: 3.8rem;
+}
+
+textarea[maxlength="200"] {
+    height: 2.8rem;
 }
 
 footer {
     background-color: var(--cor-rosa-claro);
     text-align: center;
     padding: 2rem;
-    box-shadow: 0px -3px 12px -4px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px -3px 12px -4px #c9c9c9;
     margin-top: 4rem;
 }

@@ -12,7 +12,6 @@ $bairro = $_POST["bairro"];
 $cidade = $_POST["cidade"];
 $estado = $_POST["estado"];
 $profissao = $_POST["profissao"];
-$como_conheceu_trabalho = $_POST["como_conheceu_trabalho"];
 $tel_res = $_POST["tel_res"];
 $tel_com = $_POST["tel_com"];
 $celular = $_POST["celular"];
@@ -21,13 +20,13 @@ $cpf_anterior = $_POST["cpf_anterior"];
 $data_mysql = date('Y-m-d', strtotime(str_replace('/', '-', $data_nasc)));
 
 $sql = "UPDATE clientes SET cpf = ?, nome = ?, data_nasc = ?, idade = ?, endereco = ?, cep = ?, bairro = ?,
-                                cidade  = ?, estado  = ?, profissao = ?, como_conheceu_trabalho = ?, tel_res  = ?, tel_com  = ?, tel_cel  = ?
+                                cidade  = ?, estado  = ?, profissao = ?, tel_res  = ?, tel_com  = ?, tel_cel  = ?
                                 WHERE cpf = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
     $stmt->bind_param(
-        "sssisssssssssss",
+        "sssissssssssss",
         $cpf,
         $nome,
         $data_mysql,
@@ -38,7 +37,6 @@ if ($stmt) {
         $cidade,
         $estado,
         $profissao,
-        $como_conheceu_trabalho,
         $tel_res,
         $tel_com,
         $celular,

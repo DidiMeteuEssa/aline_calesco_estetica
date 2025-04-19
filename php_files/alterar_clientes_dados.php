@@ -57,8 +57,6 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
                             <td><input type="text" id="idade" name="idade" placeholder="Digite a idade" value="<?= $_POST["idade_lista"]; ?>" required></td>
                             <td><label for="bairro">Bairro</label></td>
                             <td><input type="text" id="bairro" name="bairro" placeholder="Digite o bairro" value="<?= $_POST["bairro_lista"]; ?>" required></td>
-                            <td rowspan="2"><label for="como_conheceu_trabalho">Como conheceu meu trabalho?</label></td>
-                            <td rowspan="2"><textarea style="height: 7rem;" id="como_conheceu_trabalho" name="como_conheceu_trabalho" placeholder="Digite como conheceu" maxlength="100" required><?= $_POST["como_conheceu_trabalho_lista"]; ?></textarea>
                         </tr>
                         <tr>
                             <td><label for="profissao">Profissão</label></td>

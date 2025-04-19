@@ -95,12 +95,12 @@ if (isset($linha_facial['pelos'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="qual_tratamento_facial">Quais tratanentos?</label></td>
-                            <td><input type="text" id="qual_tratamento_facial" name="qual_tratamento_facial" maxlength="200" value="<?= isset($linha_facial['qual_tratamento']) ? $linha_facial['qual_tratamento'] : ''; ?>"></td>
+                            <td><label for="qual_tratamento_facial">Quais tratamentos?</label></td>
+                            <td><textarea name="qual_tratamento_facial" maxlength="200"><?= isset($linha_facial['qual_tratamento']) ? $linha_facial['qual_tratamento'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="obteve_melhora_facial">Obteve alguma melhora?</label></td>
-                            <td><input type="text" id="obteve_melhora_facial" name="obteve_melhora_facial" maxlength="200" value="<?= isset($linha_facial['obteve_melhora']) ? $linha_facial['obteve_melhora'] : ''; ?>"></td>
+                            <td><textarea name="obteve_melhora_facial" maxlength="200"><?= isset($linha_facial['obteve_melhora']) ? $linha_facial['obteve_melhora'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -149,7 +149,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="qual_contraceptivo_facial">Quais contraceptivos?</label></td>
-                            <td><input type="text" id="qual_contraceptivo_facial" name="qual_contraceptivo_facial" maxlength="200" value="<?= isset($linha_facial['qual_contraceptivo']) ? $linha_facial['qual_contraceptivo'] : ''; ?>"></td>
+                            <td><textarea name="qual_contraceptivo_facial" maxlength="200"><?= isset($linha_facial['qual_contraceptivo']) ? $linha_facial['qual_contraceptivo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -168,7 +168,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="litros_agua_facial">Quantos litros por dia?</label></td>
-                            <td><input type="text" id="litros_agua_facial" name="litros_agua_facial" maxlength="200" value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : ''; ?>" required></td>
+                            <td><input type="text" id="litros_agua_facial" name="litros_agua_facial" maxlength="10" value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : ''; ?>" required></td>
                         </tr>
                         <tr>
                             <td>
@@ -185,8 +185,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="radio" name="classificacao_alimentacao_facial" value="regular" <?= isset($linha_facial['classificacao_alimentacao']) && $linha_facial['classificacao_alimentacao'] === 'regular' ? 'checked' : '' ?> required> Regular
                                     </label>
-                                </div>
-                                <div class="grupo_radio">
                                     <label>
                                         <input type="radio" name="classificacao_alimentacao_facial" value="ruim" <?= isset($linha_facial['classificacao_alimentacao']) && $linha_facial['classificacao_alimentacao'] === 'ruim' ? 'checked' : '' ?> required> Ruim
                                     </label>
@@ -198,7 +196,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="predominio_alimentar_facial">Predomínio alimentar:</label></td>
-                            <td><input type="text" id="predominio_alimentar_facial" name="predominio_alimentar_facial" maxlength="200" value="<?= isset($linha_facial['predominio_alimentar']) ? $linha_facial['predominio_alimentar'] : ''; ?>" required></td>
+                            <td><textarea name="predominio_alimentar_facial" maxlength="200" required><?= isset($linha_facial['predominio_alimentar']) ? $linha_facial['predominio_alimentar'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -303,8 +301,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="checkbox" name="habitos_vida_facial[]" value="bebida_alcoolica" <?= isset($linha_facial['habitos_vida']) && in_array("bebida_alcoolica", $habitos_vida_marcados) ? 'checked' : '' ?>> Bebida Alcóolica
                                     </label>
-                                </div>
-                                <div class="grupo_checkbox">
                                     <label>
                                         <input type="checkbox" name="habitos_vida_facial[]" value="atividades_fisicas" <?= isset($linha_facial['habitos_vida']) && in_array("atividades_fisicas", $habitos_vida_marcados) ? 'checked' : '' ?>> Atividades Físicas
                                     </label>
@@ -327,8 +323,8 @@ if (isset($linha_facial['pelos'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="medicamento_qual_freq_facial">Quais medicamentos, <p>qual frequência?</p></label>
-                            <td><input type="text" id="medicamento_qual_freq_facial" name="medicamento_qual_freq_facial" maxlength="200" value="<?= isset($linha_facial['medicamento_qual_freq']) ? $linha_facial['medicamento_qual_freq'] : ''; ?>"></td>
+                            <td><label for="medicamentos_qual_freq_facial">Quais medicamentos, <p>qual frequência?</p></label>
+                            <td><textarea name="medicamentos_qual_freq_facial" maxlength="200"><?= isset($linha_facial['medicamentos_qual_freq']) ? $linha_facial['medicamentos_qual_freq'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -347,7 +343,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="cosmeticos_qual_freq_facial">Quais cosmeticos, <p>qual frequência?</p></label>
-                            <td><input type="text" id="cosmeticos_qual_freq_facial" name="cosmeticos_qual_freq_facial" maxlength="200" value="<?= isset($linha_facial['cosmeticos_qual_freq']) ? $linha_facial['cosmeticos_qual_freq'] : ''; ?>"></td>
+                            <td><textarea name="cosmeticos_qual_freq_facial" maxlength="200"><?= isset($linha_facial['cosmeticos_qual_freq']) ? $linha_facial['cosmeticos_qual_freq'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -366,7 +362,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="botox_local_tempo_facial">Qual local, <p>ha quanto tempo?</p></label>
-                            <td><input type="text" id="botox_local_tempo_facial" name="botox_local_tempo_facial" maxlength="200" value="<?= isset($linha_facial['botox_local_tempo']) ? $linha_facial['botox_local_tempo'] : ''; ?>"></td>
+                            <td><textarea name="botox_local_tempo_facial" maxlength="200"><?= isset($linha_facial['botox_local_tempo']) ? $linha_facial['botox_local_tempo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -415,7 +411,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="protetor_solar_qual_freq_facial">Qual protetor, <p>qual frequência?</p></label>
-                            <td><input type="text" id="protetor_solar_qual_freq_facial" name="protetor_solar_qual_freq_facial" maxlength="200" value="<?= isset($linha_facial['protetor_solar_qual_freq']) ? $linha_facial['protetor_solar_qual_freq'] : ''; ?>"></td>
+                            <td><textarea name="protetor_solar_qual_freq_facial" maxlength="200"><?= isset($linha_facial['protetor_solar_qual_freq']) ? $linha_facial['protetor_solar_qual_freq'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -434,7 +430,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="quais_alergias_facial">Quais alergias?</label>
-                            <td><input type="text" id="quais_alergias_facial" name="quais_alergias_facial" maxlength="200" value="<?= isset($linha_facial['quais_alergias']) ? $linha_facial['quais_alergias'] : ''; ?>"></td>
+                            <td><textarea name="quais_alergias_facial" maxlength="200"><?= isset($linha_facial['quais_alergias']) ? $linha_facial['quais_alergias'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -468,7 +464,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="qual_disturbio_facial">Quais disturbios?</label>
-                            <td><input type="text" id="qual_disturbio_facial" name="qual_disturbio_facial" maxlength="200" value="<?= isset($linha_facial['qual_disturbio']) ? $linha_facial['qual_disturbio'] : ''; ?>"></td>
+                            <td><textarea name="qual_disturbio_facial" maxlength="200"><?= isset($linha_facial['qual_disturbio']) ? $linha_facial['qual_disturbio'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -487,7 +483,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="quais_cardiacos_facial">Quais problemas cardiacos?</label>
-                            <td><input type="text" id="quais_cardiacos_facial" name="quais_cardiacos_facial" maxlength="200" value="<?= isset($linha_facial['quais_cardiaco']) ? $linha_facial['quais_cardiaco'] : ''; ?>"></td>
+                            <td><textarea name="quais_cardiacos_facial" maxlength="200"><?= isset($linha_facial['quais_cardiacos']) ? $linha_facial['quais_cardiacos'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -531,8 +527,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="radio" name="menstruacao_facial" value="irregular" <?= isset($linha_facial['menstruacao']) && $linha_facial['menstruacao'] === 'irregular' ? 'checked' : '' ?> required> Irregular
                                     </label>
-                                </div>
-                                <div class="grupo_radio">
                                     <label>
                                         <input type="radio" name="menstruacao_facial" value="menopausa" <?= isset($linha_facial['menstruacao']) && $linha_facial['menstruacao'] === 'menopausa' ? 'checked' : '' ?> required> Menopausa
                                     </label>
@@ -581,32 +575,32 @@ if (isset($linha_facial['pelos'])) {
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="i" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'i' ? 'checked' : '' ?> required> Tipo I - Muito sensível – queima facilmente <br>e nunca pigmenta
+                                        <input type="radio" name="classif_fototipo_facial" value="i" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'i' ? 'checked' : '' ?> required> Tipo I - Muito sensível – queima facilmente e nunca pigmenta
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="ii" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'ii' ? 'checked' : '' ?> required> Tipo II - Sensível – queima moderadamente <br>e pigmenta levemente
+                                        <input type="radio" name="classif_fototipo_facial" value="ii" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'ii' ? 'checked' : '' ?> required> Tipo II - Sensível – queima moderadamente e pigmenta levemente
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="iii" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'iii' ? 'checked' : '' ?> required> Tipo III - Moderadamente sensível – <br>queima levemente e pigmenta facilmente
+                                        <input type="radio" name="classif_fototipo_facial" value="iii" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'iii' ? 'checked' : '' ?> required> Tipo III - Moderadamente sensível – queima levemente e pigmenta facilmente
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="iv" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'iv' ? 'checked' : '' ?> required> Tipo IV - Muito pouco sensível – as vezes <br>queima e está sempre pigmentada
+                                        <input type="radio" name="classif_fototipo_facial" value="iv" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'iv' ? 'checked' : '' ?> required> Tipo IV - Muito pouco sensível – as vezes queima e está sempre pigmentada
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="v" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'v' ? 'checked' : '' ?> required> Tipo V - Nunca queima e pigmenta mais <br>que a média
+                                        <input type="radio" name="classif_fototipo_facial" value="v" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'v' ? 'checked' : '' ?> required> Tipo V - Nunca queima e pigmenta mais que a média
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_fototipo_facial" value="vi" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'vi' ? 'checked' : '' ?> required> Tipo VI - Pele negra – Sempre pigmenta <br>e nunca queima
+                                        <input type="radio" name="classif_fototipo_facial" value="vi" <?= isset($linha_facial['classif_fototipo']) && $linha_facial['classif_fototipo'] === 'vi' ? 'checked' : '' ?> required> Tipo VI - Pele negra – Sempre pigmenta e nunca queima
                                     </label>
                                 </div>
                             </td>
@@ -623,28 +617,28 @@ if (isset($linha_facial['pelos'])) {
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_goglau_facial" value="ii" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'ii' ? 'checked' : '' ?> required> Tipo II - Rugas ao movimento, pequenas alterações <br>pigmentares – 30 anos
+                                        <input type="radio" name="classif_goglau_facial" value="ii" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'ii' ? 'checked' : '' ?> required> Tipo II - Rugas ao movimento, pequenas alterações pigmentares – 30 anos
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_goglau_facial" value="iii" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'iii' ? 'checked' : '' ?> required> Tipo III - Rugas no repouso, melasma região <br>zigomática, elastose solar – 40 anos
+                                        <input type="radio" name="classif_goglau_facial" value="iii" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'iii' ? 'checked' : '' ?> required> Tipo III - Rugas no repouso, melasma região zigomática, elastose solar – 40 anos
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="classif_goglau_facial" value="iv" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'iv' ? 'checked' : '' ?> required> Tipo IV - Muitas rugas, telangiectasias, <br>hiperpigmentação, hirsutismo e/ou hipertricose,<br> tumoração
+                                        <input type="radio" name="classif_goglau_facial" value="iv" <?= isset($linha_facial['classif_goglau']) && $linha_facial['classif_goglau'] === 'iv' ? 'checked' : '' ?> required> Tipo IV - Muitas rugas, telangiectasias, hiperpigmentação, hirsutismo e/ou <br>hipertricose, tumoração
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="goglau_estatica_facial">Tipo estática:</label>
-                            <td><input type="text" id="goglau_estatica_facial" name="goglau_estatica_facial" maxlength="200" value="<?= isset($linha_facial['goglau_estatica']) ? $linha_facial['goglau_estatica'] : ''; ?>"></td>
+                            <td><textarea name="goglau_estatica_facial" maxlength="200"><?= isset($linha_facial['goglau_estatica']) ? $linha_facial['goglau_estatica'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="goglau_dinamica_facial">Tipo dinâmica:</label>
-                            <td><input type="text" id="goglau_dinamica_facial" name="goglau_dinamica_facial" maxlength="200" value="<?= isset($linha_facial['goglau_dinamica']) ? $linha_facial['goglau_dinamica'] : ''; ?>"></td>
+                            <td><textarea name="goglau_dinamica_facial" maxlength="200"><?= isset($linha_facial['goglau_dinamica']) ? $linha_facial['goglau_dinamica'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -664,8 +658,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="radio" name="tipo_pele_facial" value="oleosa" <?= isset($linha_facial['tipo_pele']) && $linha_facial['tipo_pele'] === 'oleosa' ? 'checked' : '' ?> required> Oleosa
                                     </label>
-                                </div>
-                                <div class="grupo_radio">
                                     <label>
                                         <input type="radio" name="tipo_pele_facial" value="sensivel" <?= isset($linha_facial['tipo_pele']) && $linha_facial['tipo_pele'] === 'sensivel' ? 'checked' : '' ?> required> Sensível
                                     </label>
@@ -687,8 +679,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="radio" name="grau_hidratacao_facial" value="desidratada_superficial" <?= isset($linha_facial['grau_hidratacao']) && $linha_facial['grau_hidratacao'] === 'desidratada_superficial' ? 'checked' : '' ?> required> Desidratada Superficial
                                     </label>
-                                </div>
-                                <div class="grupo_radio">
                                     <label>
                                         <input type="radio" name="grau_hidratacao_facial" value="desidratada_profunda" <?= isset($linha_facial['grau_hidratacao']) && $linha_facial['grau_hidratacao'] === 'desidratada_profunda' ? 'checked' : '' ?> required> Desidratada Profunda
                                     </label>
@@ -713,8 +703,6 @@ if (isset($linha_facial['pelos'])) {
                                     <label>
                                         <input type="radio" name="textura_pele_facial" value="fina" <?= isset($linha_facial['textura_pele']) && $linha_facial['textura_pele'] === 'fina' ? 'checked' : '' ?> required> Fina
                                     </label>
-                                </div>
-                                <div class="grupo_radio">
                                     <label>
                                         <input type="radio" name="textura_pele_facial" value="grossa" <?= isset($linha_facial['textura_pele']) && $linha_facial['textura_pele'] === 'grossa' ? 'checked' : '' ?> required> Grossa
                                     </label>
@@ -759,18 +747,18 @@ if (isset($linha_facial['pelos'])) {
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="acne_facial" value="ii" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'ii' ? 'checked' : '' ?> required> Grau II - Comedões Comedões abertos, <br>pápulas, seborréia, com ou sem inflamação <br>de pústulas
+                                        <input type="radio" name="acne_facial" value="ii" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'ii' ? 'checked' : '' ?> required> Grau II - Comedões Comedões abertos, pápulas, seborréia, com ou sem <br> inflamação de pústulas
                                     </label>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="acne_facial" value="iii" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'iii' ? 'checked' : '' ?> required> Grau III - Comedões abertos, pápulas, pústulas, <br>seborréia e cistos
+                                        <input type="radio" name="acne_facial" value="iii" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'iii' ? 'checked' : '' ?> required> Grau III - Comedões abertos, pápulas, pústulas, seborréia e cistos
                                     </label>
                                 </div>
                                 </div>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="acne_facial" value="iv" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'iv' ? 'checked' : '' ?> required> Grau IV - Todas as complicações acima com a <br>presença de grandes nódulos purulentos
+                                        <input type="radio" name="acne_facial" value="iv" <?= isset($linha_facial['acne']) && $linha_facial['acne'] === 'iv' ? 'checked' : '' ?> required> Grau IV - Todas as complicações acima com a presença de grandes <br> nódulos purulentos
                                     </label>
                                 </div>
                             </td>
@@ -799,7 +787,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="local_facial">Local</label>
-                            <td><input type="text" id="local_facial" name="local_facial" maxlength="200" value="<?= isset($linha_facial['local']) ? $linha_facial['local'] : ''; ?>"></td>
+                            <td><textarea name="local_facial" maxlength="200"><?= isset($linha_facial['local']) ? $linha_facial['local'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -1016,9 +1004,8 @@ if (isset($linha_facial['pelos'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="observacao_olheiras_facial">Local</label>
-                            <td><input type="text" id="observacao_olheiras_facial" name="observacao_olheiras_facial" maxlength="200" value="<?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?>"></td>
-                        </tr>
+                            <td><label for="observacao_olheiras_facial">Observação olheiras</label>
+                            <td><textarea name="observacao_olheiras_facial" maxlength="200"><?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?></textarea></td>                        </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
                                 <h4>AVALIAÇÃO POR IMAGEM</h4>
@@ -1098,7 +1085,7 @@ if (isset($linha_facial['pelos'])) {
     </footer>
 
     <script>
-        function msgSucesso(){
+        function msgSucesso() {
             alert("Ficha salva com suceso!")
             return true
         }
