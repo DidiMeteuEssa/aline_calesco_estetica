@@ -19,7 +19,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Alteração de Clientes / <a href="alterar_clientes.php">VOLTAR</a></h2>
@@ -72,7 +72,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 

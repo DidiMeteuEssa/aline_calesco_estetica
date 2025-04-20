@@ -25,7 +25,7 @@ $linha = $resultado->fetch_assoc();
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Ficha de Anamnese Corporal / <a href="anamnese_corporal_pesquisa.php">VOLTAR</a></h2>
@@ -345,7 +345,7 @@ $linha = $resultado->fetch_assoc();
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 

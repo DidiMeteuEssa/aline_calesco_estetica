@@ -14,19 +14,19 @@
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Ficha de Tratamento de Melasma / <a href="../index.php">VOLTAR</a></h2>
-        <?php 
+        <?php
         include("pesquisar.php");
         ?>
         <section class="data">
             <table class="data-table">
                 <thead>
                     <tr class="borda">
-                        <th >Nome</th>
-                        <th >CPF</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
                         <th colspan="2">Visualizar / Editar Ficha</th>
                     </tr>
                 </thead>
@@ -54,7 +54,7 @@
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 </body>

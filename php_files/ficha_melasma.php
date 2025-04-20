@@ -15,6 +15,13 @@ $stmt_pessoal->bind_param("s", $cpf_sql_melasma);
 $stmt_pessoal->execute();
 $resultado_pessoal = $stmt_pessoal->get_result();
 $linha_pessoal = $resultado_pessoal->fetch_assoc();
+
+if (isset($linha_melasma['data_hoje'])) {
+    $data_mysql = $linha_melasma['data_hoje'];
+    $data_br = date('d/m/Y', strtotime($data_mysql));
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +35,15 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Oxygen:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../index.css">
-    <title>Anamnese Facial</title>
+    <title>Tratamento de Melasma</title>
 </head>
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
-        <h2>Ficha de Anamnese Facial / <a href="melasma_pesquisa.php">VOLTAR</a></h2>
+        <h2>Ficha de Tratamento de Melasma / <a href="melasma_pesquisa.php">VOLTAR</a></h2>
         <section class="cliente_ficha">
             <h3>CLIENTE SELECIONADO</h3>
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["nome_melasma"]; ?>" disabled>
@@ -53,8 +60,11 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="data_hoje_melasma">Data de hoje:</label></td>
-                            <td><input type="text" id="data_hoje_melasma" name="data_hoje_melasma" value="<?= isset($linha_melasma['data_hoje']) ? $linha_melasma['data_hoje'] : ''; ?>" placeholder="dd/mm/aaaa" required></td>
+                            <td>
+                                <label for="data_hoje_melasma">Data de hoje:</label>
+                                <p style="font-size: 0.7rem;">(A data é gerada automaticamente, <br>atualizar se necessário)</p>
+                            </td>
+                            <td><input type="text" id="data_hoje_melasma" name="data_hoje_melasma" value="<?= !isset($linha_melasma['data_hoje']) ? date('d/m/Y') : $data_br ?>" placeholder="dd/mm/aaaa" required></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -66,8 +76,12 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td><input type="text" name="cidade" value="<?= $linha_pessoal['cidade']; ?>" disabled style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td><label for="cidade">Trabalha como:</label></td>
-                            <td><input type="text" name="cidade" value="<?= $linha_pessoal['profissao']; ?>" disabled style="width: 40rem;"></td>
+                            <td><label for="trabalha">Trabalha como:</label></td>
+                            <td><input type="text" name="trabalha" value="<?= $linha_pessoal['profissao']; ?>" disabled style="width: 40rem;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="como_conheceu_trabalho_melasma">Como conheceu meu trabalho?</label></td>
+                            <td><textarea name="como_conheceu_trabalho_melasma" maxlength="200" required><?= isset($linha_melasma['como_conheceu_trabalho']) ? $linha_melasma['como_conheceu_trabalho'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="filhos_melasma">Possui filhos?</label></td>
@@ -98,10 +112,6 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                         <tr>
                             <td><label for="casamento_saudavel_melasma">Possui casamento saudável?</label></td>
                             <td><textarea name="casamento_saudavel_melasma" maxlength="300" required><?= isset($linha_melasma['casamento_saudavel']) ? $linha_melasma['casamento_saudavel'] : ''; ?></textarea></td>
-                        </tr>
-                        <tr>
-                            <td><label for="como_conheceu_trabalho">Como conheceu meu trabalho?</label></td>
-                            <td><textarea name="como_conheceu_trabalho" maxlength="200" required ><?= isset($linha_melasma['como_conheceu_trabalho']) ? $linha_melasma['como_conheceu_trabalho'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -202,10 +212,10 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="tipo_melanina_facial" value="eumelanina" <?= isset($linha_facial['tipo_melanina']) && $linha_facial['tipo_melanina'] === 'eumelanina' ? 'checked' : '' ?> required> Eumelanina
+                                        <input type="radio" name="tipo_melanina_melasma" value="eumelanina" <?= isset($linha_melasma['tipo_melanina']) && $linha_melasma['tipo_melanina'] === 'eumelanina' ? 'checked' : '' ?> required> Eumelanina
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_melanina_facial" value="feumelanina" <?= isset($linha_facial['tipo_melanina']) && $linha_facial['tipo_melanina'] === 'feumelanina' ? 'checked' : '' ?> required> Feumelanina
+                                        <input type="radio" name="tipo_melanina_melasma" value="feumelanina" <?= isset($linha_melasma['tipo_melanina']) && $linha_melasma['tipo_melanina'] === 'feumelanina' ? 'checked' : '' ?> required> Feumelanina
                                     </label>
                                 </div>
                             </td>
@@ -261,10 +271,10 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="uso_cosmetico_rotina_skincare_facial" value="sim" <?= isset($linha_facial['uso_cosmetico_rotina_skincare']) && $linha_facial['uso_cosmetico_rotina_skincare'] === 'sim' ? 'checked' : '' ?> required> Sim
+                                        <input type="radio" name="uso_cosmetico_rotina_skincare_melasma" value="sim" <?= isset($linha_melasma['uso_cosmetico_rotina_skincare']) && $linha_melasma['uso_cosmetico_rotina_skincare'] === 'sim' ? 'checked' : '' ?> required> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="uso_cosmetico_rotina_skincare_facial" value="nao" <?= isset($linha_facial['uso_cosmetico_rotina_skincare']) && $linha_facial['uso_cosmetico_rotina_skincare'] === 'nao' ? 'checked' : '' ?> required> Não
+                                        <input type="radio" name="uso_cosmetico_rotina_skincare_melasma" value="nao" <?= isset($linha_melasma['uso_cosmetico_rotina_skincare']) && $linha_melasma['uso_cosmetico_rotina_skincare'] === 'nao' ? 'checked' : '' ?> required> Não
                                     </label>
                                 </div>
                             </td>
@@ -312,17 +322,17 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="usa_secador_chapinha_facial" value="sim" <?= isset($linha_facial['usa_secador_chapinha']) && $linha_facial['usa_secador_chapinha'] === 'sim' ? 'checked' : '' ?> required> Sim
+                                        <input type="radio" name="usa_secador_chapinha_melasma" value="sim" <?= isset($linha_melasma['usa_secador_chapinha']) && $linha_melasma['usa_secador_chapinha'] === 'sim' ? 'checked' : '' ?> required> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="usa_secador_chapinha_facial" value="nao" <?= isset($linha_facial['usa_secador_chapinha']) && $linha_facial['usa_secador_chapinha'] === 'nao' ? 'checked' : '' ?> required> Não
+                                        <input type="radio" name="usa_secador_chapinha_melasma" value="nao" <?= isset($linha_melasma['usa_secador_chapinha']) && $linha_melasma['usa_secador_chapinha'] === 'nao' ? 'checked' : '' ?> required> Não
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="funcionamento_intestinal_melasma">Funcionamento intestinal:</label></td>
-                            <td><textarea name="funcionamento_intestinal_melasma" maxlength="300"><?= isset($linha_melasma['funcionamento_intestinal']) ? $linha_melasma['funcionamento_intestinal'] : ''; ?></textarea></td>
+                            <td><textarea name="funcionamento_intestinal_melasma" required maxlength="300"><?= isset($linha_melasma['funcionamento_intestinal']) ? $linha_melasma['funcionamento_intestinal'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -338,8 +348,8 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td><textarea name="indicacao_plano_tratamento_melasma" required maxlength="300"><?= isset($linha_melasma['indicacao_plano_tratamento']) ? $linha_melasma['indicacao_plano_tratamento'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
-                            <td><label for="contatacao_raiz_problema_melasma">Indicação de skin care:</label></td>
-                            <td><textarea name="contatacao_raiz_problema_melasma" required maxlength="300"><?= isset($linha_melasma['contatacao_raiz_problema']) ? $linha_melasma['contatacao_raiz_problema'] : ''; ?></textarea></td>
+                            <td><label for="indicacao_skin_care_melasma">Indicação de skin care:</label></td>
+                            <td><textarea name="indicacao_skin_care_melasma" required maxlength="300"><?= isset($linha_melasma['indicacao_skin_care']) ? $linha_melasma['contatacao_raiz_problema'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="indicacao_equipe_multidisciplinar_melasma">Indicação de equipe multidisciplinar:</label></td>
@@ -353,6 +363,10 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
                             <td><label for="pontos_acordados_melasma">Pontos acordados:</label></td>
                             <td><textarea name="pontos_acordados_melasma" required maxlength="300"><?= isset($linha_melasma['pontos_acordados']) ? $linha_melasma['pontos_acordados'] : ''; ?></textarea></td>
                         </tr>
+                        <tr>
+                            <td><label for="constatacao_raiz_problema_melasma">Constatação da raiz do problema:</label></td>
+                            <td><textarea name="constatacao_raiz_problema_melasma" required maxlength="500"><?= isset($linha_melasma['constatacao_raiz_problema']) ? $linha_melasma['constatacao_raiz_problema'] : ''; ?></textarea></td>
+                        </tr>
                     </tbody>
                 </table>
                 <button type="submit">Salvar</button>
@@ -361,7 +375,7 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 
@@ -371,6 +385,7 @@ $linha_pessoal = $resultado_pessoal->fetch_assoc();
             return true
         }
     </script>
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
     <script src="../js_files/mascaras.js"></script>
 </body>
 

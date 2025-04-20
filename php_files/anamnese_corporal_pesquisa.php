@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Ficha de Anamnese de Avaliação Corporal / <a href="../index.php">VOLTAR</a></h2>
@@ -37,7 +37,7 @@
                         <?php while ($row = $resultado->fetch_assoc()) { ?>
                             <tr>
                                 <form action="ficha_anamnese_corporal.php" method="post" class="data-form">
-                                    <input type="hidden" name="cpf_corporal" value="<?= $row['cpf']; ?>" >
+                                    <input type="hidden" name="cpf_corporal" value="<?= $row['cpf']; ?>">
                                     <input type="hidden" name="nome_corporal" value="<?= $row['nome']; ?>">
                                     <td>
                                         <input type="text" value="<?= $row['nome']; ?>" style="width: 15rem;" disabled>
@@ -68,7 +68,7 @@
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 </body>

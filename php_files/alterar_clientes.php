@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Alteração de Clientes / <a href="../index.php">VOLTAR</a></h2>
@@ -81,7 +81,7 @@
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 </body>

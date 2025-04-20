@@ -50,7 +50,7 @@ if (isset($linha_facial['pelos'])) {
 
 <body>
     <header>
-        <h1>Aline Calesco Estética</h1>
+        <h1>Aline Calesco Estética Funcional Integrativa</h1>
     </header>
     <main>
         <h2>Ficha de Anamnese Facial / <a href="anamnese_facial_pesquisa.php">VOLTAR</a></h2>
@@ -1005,7 +1005,8 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="observacao_olheiras_facial">Observação olheiras</label>
-                            <td><textarea name="observacao_olheiras_facial" maxlength="200"><?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?></textarea></td>                        </tr>
+                            <td><textarea name="observacao_olheiras_facial" maxlength="200"><?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?></textarea></td>
+                        </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
                                 <h4>AVALIAÇÃO POR IMAGEM</h4>
@@ -1080,7 +1081,7 @@ if (isset($linha_facial['pelos'])) {
     </main>
     <footer>
         <p>
-            Aline Calesco Estética &copy; 2025
+            Aline Calesco Estética Funcional Integrativa &copy; 2025
         </p>
     </footer>
 

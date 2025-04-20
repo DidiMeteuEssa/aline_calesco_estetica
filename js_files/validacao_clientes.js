@@ -98,3 +98,5 @@ function validarCPF(cpf) {
     return cpf.charAt(9) == digito1 && cpf.charAt(10) == digito2;
 }
 
+
+
