@@ -37,13 +37,13 @@
                         <?php while ($row = $resultado->fetch_assoc()) { ?>
                             <tr>
                                 <form action="ficha_anamnese_corporal.php" method="post" class="data-form">
-                                    <input type="hidden" name="cpf_corporal" value="<?= $row['cpf']; ?>">
+                                    <input type="hidden" name="cpf_corporal" value="<?= $row['cpf']; ?>" >
                                     <input type="hidden" name="nome_corporal" value="<?= $row['nome']; ?>">
                                     <td>
-                                        <input type="text" value="<?= $row['nome']; ?>" disabled>
+                                        <input type="text" value="<?= $row['nome']; ?>" style="width: 15rem;" disabled>
                                     </td>
                                     <td>
-                                        <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
+                                        <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" style="width: 15rem;" disabled>
                                     </td>
                                     <td>
                                         <button type="submit" name="acao" value="editar">Visualizar / Editar Ficha</button>

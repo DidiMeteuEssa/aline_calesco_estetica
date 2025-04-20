@@ -34,10 +34,10 @@
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <tr>
                             <form action="ficha_melasma.php" method="post" class="data-form">
-                                <input type="hidden" name="cpf_melasma" value="<?= $row['cpf']; ?>">
+                                <input type="hidden" name="cpf_melasma" value="<?= $row['cpf']; ?> ">
                                 <input type="hidden" name="nome_melasma" value="<?= $row['nome']; ?>">
                                 <td>
-                                    <input type="text" value="<?= $row['nome']; ?>" disabled>
+                                    <input type="text" value="<?= $row['nome']; ?>" style="width: 15rem;" disabled>
                                 </td>
                                 <td>
                                     <input id="cpf_lista<?= $row['cpf']; ?>" type="text" name="cpf_lista" value="<?= $row['cpf']; ?>" disabled>
