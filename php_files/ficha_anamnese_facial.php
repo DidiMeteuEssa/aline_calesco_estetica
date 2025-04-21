@@ -2,12 +2,17 @@
 include("conexao_db.php");
 $cpf_sql_facial =  $_POST["cpf_facial"];
 
-$sql_facial = "SELECT * FROM ficha_anamnese_facial WHERE cliente = ?";
+$sql_facial = "SELECT * 
+FROM campos_comuns
+LEFT JOIN ficha_anamnese_facial 
+ON ficha_anamnese_facial.cliente = campos_comuns.cliente
+WHERE campos_comuns.cliente = ?";
 $stmt_facial = $conn->prepare($sql_facial);
 $stmt_facial->bind_param("s", $cpf_sql_facial);
 $stmt_facial->execute();
 $resultado_facial = $stmt_facial->get_result();
 $linha_facial = $resultado_facial->fetch_assoc();
+
 
 if (isset($linha_facial['habitos_vida'])) {
     $habitos_vida_marcados = explode(",", $linha_facial['habitos_vida']);
@@ -152,23 +157,8 @@ if (isset($linha_facial['pelos'])) {
                             <td><textarea name="qual_contraceptivo_facial" maxlength="200"><?= isset($linha_facial['qual_contraceptivo']) ? $linha_facial['qual_contraceptivo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Faz uma boa ingestão de água?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="ingestao_agua_facial" value="sim" <?= isset($linha_facial['ingestao_agua']) && $linha_facial['ingestao_agua'] === 'sim' ? 'checked' : '' ?> required> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="ingestao_agua_facial" value="nao" <?= isset($linha_facial['ingestao_agua']) && $linha_facial['ingestao_agua'] === 'nao' ? 'checked' : '' ?> required> Nao
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="litros_agua_facial">Quantos litros por dia?</label></td>
-                            <td><input type="text" id="litros_agua_facial" name="litros_agua_facial" maxlength="10" value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : ''; ?>" required></td>
+                            <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
+                            <td><input type="text"  name="litros_agua" required value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td>

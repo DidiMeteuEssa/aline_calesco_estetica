@@ -2,7 +2,11 @@
 include("conexao_db.php");
 $cpf_sql =  $_POST["cpf_corporal"];
 
-$sql = "SELECT * FROM ficha_anamnese_corporal WHERE cliente = ?";
+$sql = "SELECT * 
+FROM campos_comuns
+LEFT JOIN ficha_anamnese_corporal 
+ON ficha_anamnese_corporal.cliente = campos_comuns.cliente
+WHERE campos_comuns.cliente = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $cpf_sql);
 $stmt->execute();
@@ -40,28 +44,19 @@ $linha = $resultado->fetch_assoc();
                 <table class="ficha-table">
                     <tbody>
                         <tr>
-                            <td colspan="2" style="text-align: center; padding-bottom: .5rem">
-                                <h4>HÁBITOS DIÁRIOS</h4>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>
-                                <p>Utiliza cosméticos?</p>
+                                <p>Faz uso de cosméticos?</p>
                             </td>
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="usa_cosmetico" value="sim" required <?= isset($linha['usa_cosmetico']) && $linha['usa_cosmetico'] === 'sim' ? 'checked' : '' ?>> Sim
+                                        <input type="radio" name="uso_cosmetico" value="sim" <?= isset($linha['uso_cosmetico']) && $linha['uso_cosmetico'] === 'sim' ? 'checked' : '' ?> required> Sim
                                     </label>
                                     <label>
-                                        <input type="radio" name="usa_cosmetico" value="nao" required <?= isset($linha['usa_cosmetico']) && $linha['usa_cosmetico'] === 'nao' ? 'checked' : '' ?>> Nao
+                                        <input type="radio" name="uso_cosmetico" value="nao" <?= isset($linha['uso_cosmetico']) && $linha['uso_cosmetico'] === 'nao' ? 'checked' : '' ?> required> Não
                                     </label>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td><label for="qual_cosmeticos">Quais cosméticos?</label></td>
-                            <td><textarea name="qual_cosmeticos" maxlength="200"><?= isset($linha['qual_cosmetico']) ? $linha['qual_cosmetico'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -79,59 +74,20 @@ $linha = $resultado->fetch_assoc();
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Faz ingestão de alcool?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="ingere_alcool" value="sim" required <?= isset($linha['ingere_alcool']) && $linha['ingere_alcool'] === 'sim' ? 'checked' : '' ?>> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="ingere_alcool" value="nao" required <?= isset($linha['ingere_alcool']) && $linha['ingere_alcool'] === 'nao' ? 'checked' : '' ?>> Nao
-                                    </label>
-                                </div>
-                            </td>
+                            <td><label for="diureticos">Ingere algum líquido diurético?</label></td>
+                            <td><input type="text" name="diureticos" required placeholder="Bebida alcoólica, chás diuréticos, chimarrão..." value="<?= isset($linha['diureticos']) ? $linha['diureticos'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td><label for="qtde_agua">Quantos copos de água por dia?</label></td>
-                            <td><input type="text" id="qtde_agua" name="qtde_agua" maxlength="200" value="<?= isset($linha['qtde_copos_agua']) ? $linha['qtde_copos_agua'] : ''; ?>" required></td>
+                            <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
+                            <td><input type="text"  name="litros_agua" required value="<?= isset($linha['litros_agua']) ? $linha['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Qualidade do sono?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="qualidade_sono" value="bom" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'bom' ? 'checked' : '' ?>> Bom
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="qualidade_sono" value="ruim" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'ruim' ? 'checked' : '' ?>> Ruim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="qualidade_sono" value="pessimo" required <?= isset($linha['qualidade_sono']) && $linha['qualidade_sono'] === 'pessimo' ? 'checked' : '' ?>> Péssimo
-                                    </label>
-                                </div>
-                            </td>
+                            <td><label for="qualidade_sono">Quantas horas de qualidade sono por dia?</label></td>
+                            <td><input type="text" name="qualidade_sono" required value="<?= isset($linha['qualidade_sono']) ? $linha['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Qualidade da alimentação?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="bom" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'bom' ? 'checked' : '' ?>> Bom
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="ruim" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'ruim' ? 'checked' : '' ?>> Ruim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="qualidade_alimentacao" value="pessimo" required <?= isset($linha['qualidade_alimentacao']) && $linha['qualidade_alimentacao'] === 'pessimo' ? 'checked' : '' ?>> Péssimo
-                                    </label>
-                                </div>
-                            </td>
+                            <td><label for="alimentacao_detalhada">Alimentação detalhada: </label></td>
+                            <td><textarea name="alimentacao_detalhada" required maxlength="300"><?= isset($linha['alimentacao_detalhada']) ? $linha['alimentacao_detalhada'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -148,7 +104,6 @@ $linha = $resultado->fetch_assoc();
                                 </div>
                             </td>
                         </tr>
-
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
                                 <h4>HISTÓRICO CLÍNICO E AVALIAÇÃO CUTÂNEA</h4>
@@ -173,27 +128,8 @@ $linha = $resultado->fetch_assoc();
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Toma medicamento?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="toma_medicamento" value="sim" required <?= isset($linha['toma_medicacao']) && $linha['toma_medicacao'] === 'sim' ? 'checked' : '' ?>> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="toma_medicamento" value="nao" required <?= isset($linha['toma_medicacao']) && $linha['toma_medicacao'] === 'nao' ? 'checked' : '' ?>> Nao
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="qual_medicamento">Quais medicamentos?</label></td>
-                            <td><textarea name="qual_medicamento" maxlength="200"><?= isset($linha['qual_medicacao']) ? $linha['qual_medicacao'] : ''; ?></textarea></td>
-                        </tr>
-                        <tr>
-                            <td><label for="tempo_medicacao">Há quanto tempo toma medicamentos?</label></td>
-                            <td><textarea name="tempo_medicacao" maxlength="200"><?= isset($linha['quanto_tempo_medicacao']) ? $linha['quanto_tempo_medicacao'] : ''; ?></textarea></td>
+                            <td><label for="medicacao">Usa alguma medicação frequente? <br>Há quanto tempo?</label></td>
+                            <td><textarea name="medicacao" maxlength="300"><?= isset($linha['medicacao']) ? $linha['medicacao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -215,23 +151,8 @@ $linha = $resultado->fetch_assoc();
                             <td><textarea name="quais_suplementos" maxlength="200"><?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Possui trombose?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="trombose" value="sim" required <?= isset($linha['trombose']) && $linha['trombose'] === 'sim' ? 'checked' : '' ?>> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="trombose" value="nao" required <?= isset($linha['trombose']) && $linha['trombose'] === 'nao' ? 'checked' : '' ?>> Nao
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="qual_trombose">Qual tipo de trombose?</label></td>
-                            <td><textarea name="qual_trombose" maxlength="200"><?= isset($linha['qual_trombose']) ? $linha['qual_trombose'] : ''; ?></textarea></td>
+                            <td><label for="trombose">Possui trombose? Qual?</label></td>
+                            <td><textarea name="trombose" maxlength="200"><?= isset($linha['trombose']) ? $linha['trombose'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -249,23 +170,8 @@ $linha = $resultado->fetch_assoc();
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>Possui diabetes?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="diabetes" value="sim" required <?= isset($linha['diabetes']) && $linha['diabetes'] === 'sim' ? 'checked' : '' ?>> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="diabetes" value="nao" required <?= isset($linha['diabetes']) && $linha['diabetes'] === 'nao' ? 'checked' : '' ?>> Nao
-                                    </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="qual_diabetes">Qual tipo de diabetes?</label></td>
-                            <td><textarea name="qual_diabetes" maxlength="200"><?= isset($linha['qual_diabetes']) ? $linha['qual_diabetes'] : ''; ?></textarea></td>
+                            <td><label for="diabetes">Possui diabetes? Qual?</label></td>
+                            <td><textarea name="diabetes" maxlength="200"><?= isset($linha['diabetes']) ? $linha['diabetes'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
