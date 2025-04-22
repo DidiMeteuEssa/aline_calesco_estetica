@@ -37,7 +37,7 @@ if (isset($linha_melasma['data_hoje'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">

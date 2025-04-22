@@ -21,7 +21,7 @@ $resultado = $stmt->get_result();
 $linha = $resultado->fetch_assoc();
 ?>
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">

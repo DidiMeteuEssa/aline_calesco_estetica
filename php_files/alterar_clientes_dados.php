@@ -4,7 +4,7 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
 ?>
 
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
