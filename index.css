@@ -29,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('img/background_imagem.png');
+    background-image: url('img/background_imagem.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -144,6 +144,7 @@ button:hover  {
 
 .data {
     margin-top: 1.6rem;
+    height: fit-content;
 }
 
 #estado {
@@ -243,6 +244,7 @@ h2 {
 textarea {
     height: 10rem;
     background-color: var(--cor-fundo);
+    color: var(--cor-marrom-claro);
     font-weight: 600;
     width: 40rem;
     padding: 1rem;

@@ -1,51 +1,47 @@
 <?php
 include("conexao_db.php");
 
+
+$uso_cosmetico = $_POST["uso_cosmetico"];
+$litros_agua = $_POST["litros_agua"];
+$qualidade_sono = $_POST["qualidade_sono"];
+$alimentacao_detalhada = $_POST["alimentacao_detalhada"];
+$medicacao = $_POST["medicacao"];
+$trombose = $_POST["trombose"];
+$diabetes = $_POST["diabetes"];
+$tratamento_realizou = $_POST["tratamento_realizou"];
+$intestino = $_POST["intestino"];
+$fototipo = $_POST["fototipo"];
+$tipo_pele = $_POST["tipo_pele"];
+$nivel_exposicao_radiacao = $_POST["nivel_exposicao_radiacao"];
+$problemas_cardiacos = $_POST["problemas_cardiacos"];
+
+
 $cpf_facial = $_POST["cpf_ficha_facial"];
 $queixa_principal_facial = $_POST["queixa_facial"];
-$fez_tratamento_facial = $_POST["tratamento_estetico_facial"];
-$qual_tratamento_facial = $_POST["qual_tratamento_facial"];
-$obteve_melhora_facial = $_POST["obteve_melhora_facial"];
 $usa_lente_facial = $_POST["usa_lente_facial"];
 $gestante_facial = $_POST["gestante_facial"];
 $contraceptivos_facial = $_POST["contraceptivos_facial"];
 $qual_contraceptivo_facial = $_POST["qual_contraceptivo_facial"];
-$ingestao_agua_facial = $_POST["ingestao_agua_facial"];
-$litros_agua_facial = $_POST["litros_agua_facial"];
-$classificacao_alimentacao_facial = $_POST["classificacao_alimentacao_facial"];
-$predominio_alimentar_facial = $_POST["predominio_alimentar_facial"];
 $hipertensao_facial = $_POST["hipertensao_facial"];
-$intestino_normal_facial = $_POST["intestino_normal_facial"];
-$insonia_facial = $_POST["insonia_facial"];
 $ansiedade_facial = $_POST["ansiedade_facial"];
 $sensivel_dor_facial = $_POST["sensivel_dor_facial"];
 $cancer_pele_facial = $_POST["cancer_pele_facial"];
-$medicamentos_facial = $_POST["medicamentos_facial"];
-$medicamento_qual_freq_facial = $_POST["medicamentos_qual_freq_facial"];
-$cosmeticos_facial = $_POST["cosmeticos_facial"];
-$cosmeticos_qual_freq_facial = $_POST["cosmeticos_qual_freq_facial"];
 $botox_facial = $_POST["botox_facial"];
 $botox_local_tempo_facial = $_POST["botox_local_tempo_facial"];
 $tireoide_facial = $_POST["tireoide_facial"];
-$trombose_facial = $_POST["trombose_facial"];
 $protetor_solar_facial = $_POST["protetor_solar_facial"];
 $protetor_solar_qual_freq_facial = $_POST["protetor_solar_qual_freq_facial"];
 $alergias_facial = $_POST["alergias_facial"];
 $quais_alergias_facial = $_POST["quais_alergias_facial"];
-$exposicao_sol_facial = $_POST["exposicao_sol_facial"];
 $disturbio_hormonal_facial = $_POST["disturbio_hormonal_facial"];
 $qual_disturbio_facial = $_POST["qual_disturbio_facial"];
-$problemas_cardiacos_facial = $_POST["problemas_cardiacos_facial"];
-$quais_cardiacos_facial = $_POST["quais_cardiacos_facial"];
 $marcapasso_facial = $_POST["marcapasso_facial"];
-$diabetes_facial = $_POST["diabetes_facial"];
 $menstruacao_facial = $_POST["menstruacao_facial"];
-$fototipo_facial = $_POST["fototipo_facial"];
 $classif_fototipo_facial = $_POST["classif_fototipo_facial"];
 $classif_goglau_facial = $_POST["classif_goglau_facial"];
 $goglau_estatica_facial = $_POST["goglau_estatica_facial"];
 $goglau_dinamica_facial = $_POST["goglau_dinamica_facial"];
-$tipo_pele_facial = $_POST["tipo_pele_facial"];
 $grau_hidratacao_facial = $_POST["grau_hidratacao_facial"];
 $textura_pele_facial = $_POST["textura_pele_facial"];
 $grau_oleosidade_facial = $_POST["grau_oleosidade_facial"];
@@ -117,63 +113,42 @@ $row_facial = $result_facial->fetch_assoc();
 $status_facial = $row_facial['status_ficha_facial'];
 
 
-if ($status_facial === 1) {
+if ($status_facial == 1) {
     $sql = "UPDATE ficha_anamnese_facial SET
-    queixa_principal=?, fez_tratamento=?, qual_tratamento=?, obteve_melhora=?, usa_lente=?, gestante=?, contraceptivo=?, qual_contraceptivo=?, ingestao_agua=?, litros_agua=?, classificacao_alimentacao=?,
-    predominio_alimentar=?, hipertensao=?, intestino_normal=?, insonia=?, ansiedade=?, sensivel_dor=?, cancer_pele=?, habitos_vida=?, medicamentos=?, medicamentos_qual_freq=?, cosmeticos=?, cosmeticos_qual_freq=?,
-    botox=?, botox_local_tempo=?, tireoide=?, trombose=?, protetor_solar=?, protetor_solar_qual_freq=?, alergias=?, quais_alergias=?, exposicao_sol=?, disturbio_hormonal=?, qual_disturbio=?, problemas_cardiacos=?, 
-    quais_cardiacos=?, marcapasso=?, diabetes=?, menstruacao=?, fototipo=?, classif_fototipo=?, tipo_pele=?, grau_hidratacao=?, textura_pele=?, grau_oleosidade=?, acne=?, evolucao_cutanea=?, local=?, classif_goglau=?, goglau_estatica=?, 
+    queixa_principal=?, usa_lente=?, gestante=?, contraceptivo=?, qual_contraceptivo=?, hipertensao=?, ansiedade=?, sensivel_dor=?, cancer_pele=?, habitos_vida=?, 
+    botox=?, botox_local_tempo=?, tireoide=?, protetor_solar=?, protetor_solar_qual_freq=?, alergias=?, quais_alergias=?, disturbio_hormonal=?, qual_disturbio=?, marcapasso=?, 
+    menstruacao=?, classif_fototipo=?, grau_hidratacao=?, textura_pele=?, grau_oleosidade=?, acne=?, evolucao_cutanea=?, local=?, classif_goglau=?, goglau_estatica=?, 
     goglau_dinamica=?, alteracoes_epiderme=?, lesao_pele=?, cicatriz=?, pelos=?, olheiras=?, observacao_olheiras=?, video_foto=?, protocolo=?, antes_depois=?, redes_sociais=?, acordo_tratamento=?
-    
-WHERE cliente = ?";
+    WHERE cliente = ?";
+
 
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
         $stmt->bind_param(
-            "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+            "sssssssssssssssssssssssssssssssssssssssssss",
             $queixa_principal_facial,
-            $fez_tratamento_facial,
-            $qual_tratamento_facial,
-            $obteve_melhora_facial,
             $usa_lente_facial,
             $gestante_facial,
             $contraceptivos_facial,
             $qual_contraceptivo_facial,
-            $ingestao_agua_facial,
-            $litros_agua_facial,
-            $classificacao_alimentacao_facial,
-            $predominio_alimentar_facial,
             $hipertensao_facial,
-            $intestino_normal_facial,
-            $insonia_facial,
             $ansiedade_facial,
             $sensivel_dor_facial,
             $cancer_pele_facial,
             $habitos_vida_str,
-            $medicamentos_facial,
-            $medicamento_qual_freq_facial,
-            $cosmeticos_facial,
-            $cosmeticos_qual_freq_facial,
             $botox_facial,
             $botox_local_tempo_facial,
             $tireoide_facial,
-            $trombose_facial,
             $protetor_solar_facial,
             $protetor_solar_qual_freq_facial,
             $alergias_facial,
             $quais_alergias_facial,
-            $exposicao_sol_facial,
             $disturbio_hormonal_facial,
             $qual_disturbio_facial,
-            $problemas_cardiacos_facial,
-            $quais_cardiacos_facial,
             $marcapasso_facial,
-            $diabetes_facial,
             $menstruacao_facial,
-            $fototipo_facial,
             $classif_fototipo_facial,
-            $tipo_pele_facial,
             $grau_hidratacao_facial,
             $textura_pele_facial,
             $grau_oleosidade_facial,
@@ -194,70 +169,89 @@ WHERE cliente = ?";
             $antes_depois_facial,
             $redes_sociais_facial,
             $acordo_tratamento_facial,
-            $cpf_facial,
+            $cpf_facial
         );
+
+        $sql_campos_comuns = "UPDATE campos_comuns SET
+                uso_cosmetico=?,
+                litros_agua=?,
+                qualidade_sono=?, 
+                alimentacao_detalhada=?,
+                medicacao=?,
+                trombose=?, 
+                diabetes=?, 
+                tratamento_realizou=?, 
+                intestino=?, 
+                fototipo=?, 
+                tipo_pele=?,
+                problemas_cardiacos=?,
+                nivel_exposicao_radiacao=?
+                WHERE cliente = ?";
+
+        $stmt_campos_comuns = $conn->prepare($sql_campos_comuns);
+
+        if ($stmt_campos_comuns) {
+            $stmt_campos_comuns->bind_param(
+                "ssssssssssssss",
+                $uso_cosmetico,
+                $litros_agua,
+                $qualidade_sono,
+                $alimentacao_detalhada,
+                $medicacao,
+                $trombose,
+                $diabetes,
+                $tratamento_realizou,
+                $intestino,
+                $fototipo,
+                $tipo_pele,
+                $problemas_cardiacos,
+                $nivel_exposicao_radiacao,
+                $cpf_facial
+            );
+        } else {
+            echo "Erro ao preparar statement: " . $conn->error;
+        }
     } else {
         echo "Erro ao preparar statement: " . $conn->error;
     }
 } else {
 
     $sql = "INSERT INTO ficha_anamnese_facial 
-    (cliente, queixa_principal, fez_tratamento, qual_tratamento, obteve_melhora, usa_lente, gestante, contraceptivo, qual_contraceptivo, ingestao_agua, litros_agua, classificacao_alimentacao,
-    predominio_alimentar, hipertensao, intestino_normal, insonia, ansiedade, sensivel_dor, cancer_pele, habitos_vida, medicamentos, medicamentos_qual_freq, cosmeticos, cosmeticos_qual_freq,
-    botox, botox_local_tempo, tireoide, trombose, protetor_solar, protetor_solar_qual_freq, alergias, quais_alergias, exposicao_sol, disturbio_hormonal, qual_disturbio, problemas_cardiacos, 
-    quais_cardiacos, marcapasso, diabetes, menstruacao, fototipo, classif_fototipo, tipo_pele, grau_hidratacao, textura_pele, grau_oleosidade, acne, evolucao_cutanea, local, classif_goglau, goglau_estatica, 
+    (cliente, queixa_principal, usa_lente, gestante, contraceptivo, qual_contraceptivo, hipertensao, ansiedade, sensivel_dor, cancer_pele, habitos_vida, 
+    botox, botox_local_tempo, tireoide, protetor_solar, protetor_solar_qual_freq, alergias, quais_alergias, disturbio_hormonal, qual_disturbio, marcapasso, 
+    menstruacao, classif_fototipo, grau_hidratacao, textura_pele, grau_oleosidade, acne, evolucao_cutanea, local, classif_goglau, goglau_estatica, 
     goglau_dinamica, alteracoes_epiderme, lesao_pele, cicatriz, pelos, olheiras, observacao_olheiras, video_foto, protocolo, antes_depois, redes_sociais, acordo_tratamento)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
         $stmt->bind_param(
-            "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+            "sssssssssssssssssssssssssssssssssssssssssss",
             $cpf_facial,
             $queixa_principal_facial,
-            $fez_tratamento_facial,
-            $qual_tratamento_facial,
-            $obteve_melhora_facial,
             $usa_lente_facial,
             $gestante_facial,
             $contraceptivos_facial,
             $qual_contraceptivo_facial,
-            $ingestao_agua_facial,
-            $litros_agua_facial,
-            $classificacao_alimentacao_facial,
-            $predominio_alimentar_facial,
             $hipertensao_facial,
-            $intestino_normal_facial,
-            $insonia_facial,
             $ansiedade_facial,
             $sensivel_dor_facial,
             $cancer_pele_facial,
             $habitos_vida_str,
-            $medicamentos_facial,
-            $medicamento_qual_freq_facial,
-            $cosmeticos_facial,
-            $cosmeticos_qual_freq_facial,
             $botox_facial,
             $botox_local_tempo_facial,
             $tireoide_facial,
-            $trombose_facial,
             $protetor_solar_facial,
             $protetor_solar_qual_freq_facial,
             $alergias_facial,
             $quais_alergias_facial,
-            $exposicao_sol_facial,
             $disturbio_hormonal_facial,
             $qual_disturbio_facial,
-            $problemas_cardiacos_facial,
-            $quais_cardiacos_facial,
             $marcapasso_facial,
-            $diabetes_facial,
             $menstruacao_facial,
-            $fototipo_facial,
             $classif_fototipo_facial,
-            $tipo_pele_facial,
             $grau_hidratacao_facial,
             $textura_pele_facial,
             $grau_oleosidade_facial,
@@ -279,13 +273,82 @@ WHERE cliente = ?";
             $redes_sociais_facial,
             $acordo_tratamento_facial,
         );
+
+        $sql_campos_status = $conn->query("SELECT `status_comuns` FROM `clientes` WHERE `cpf` =  '$cpf_facial'");
+        $row = $sql_campos_status->fetch_assoc();
+        $campos_status = $row['status_comuns'];
+
+        if ($campos_status == 0) {
+            $sql_campos_comuns = "INSERT INTO campos_comuns (
+                uso_cosmetico,
+                litros_agua,
+                qualidade_sono, 
+                alimentacao_detalhada,
+                medicacao,
+                trombose, 
+                diabetes, 
+                tratamento_realizou, 
+                intestino, 
+                fototipo, 
+                tipo_pele,
+                problemas_cardiacos,
+                nivel_exposicao_radiacao,
+                cliente)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            $update = $conn->prepare("UPDATE clientes SET status_comuns = 1 WHERE cpf = ?");
+            $update->bind_param("s", $cpf_facial);
+            $update->execute();
+        } else {
+            $sql_campos_comuns = "UPDATE campos_comuns SET
+                uso_cosmetico=?,
+                litros_agua=?,
+                qualidade_sono=?, 
+                alimentacao_detalhada=?,
+                medicacao=?,
+                trombose=?, 
+                diabetes=?, 
+                tratamento_realizou=?, 
+                intestino=?, 
+                fototipo=?, 
+                tipo_pele=?,
+                problemas_cardiacos=?,
+                nivel_exposicao_radiacao=?
+                WHERE cliente = ?";
+        }
+        $stmt_campos_comuns = $conn->prepare($sql_campos_comuns);
+
+        if ($stmt_campos_comuns) {
+            $stmt_campos_comuns->bind_param(
+                "ssssssssssssss",
+                $uso_cosmetico,
+                $litros_agua,
+                $qualidade_sono,
+                $alimentacao_detalhada,
+                $medicacao,
+                $trombose,
+                $diabetes,
+                $tratamento_realizou,
+                $intestino,
+                $fototipo,
+                $tipo_pele,
+                $problemas_cardiacos,
+                $nivel_exposicao_radiacao,
+                $cpf_facial
+            );
+        } else {
+            echo "Erro ao preparar statement: " . $conn->error;
+        }
     } else {
         echo "Erro ao preparar statement: " . $conn->error;
     }
 }
 
-if ($stmt->execute()) {
-    if ($status_facial === 0) {
+$executou_principal = $stmt->execute();
+$executou_campos = $stmt_campos_comuns ? $stmt_campos_comuns->execute() : true;
+
+if ($executou_principal && $executou_campos) {
+    if ($status_facial == 0) {
         $update = $conn->prepare("UPDATE clientes SET status_ficha_facial = 1 WHERE cpf = ?");
         $update->bind_param("s", $cpf_facial);
         $update->execute();

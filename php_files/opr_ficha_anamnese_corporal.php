@@ -151,24 +151,43 @@ WHERE cliente = ?";
             $status_doenca
         );
 
-        $sql_campos_comuns = "INSERT INTO campos_comuns (
-        cliente,
-        uso_cosmetico,
-        diureticos,
-        litros_agua,
-        qualidade_sono,
-        alimentacao_detalhada,
-        medicacao,
-        trombose,
-        diabetes)
-        VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql_campos_status = $conn->query("SELECT `status_comuns` FROM `clientes` WHERE `cpf` =  '$cpf'");
+        $row = $sql_campos_status->fetch_assoc();
+        $campos_status = $row['status_comuns'];
 
+        if ($campos_status == 0) {
+            $sql_campos_comuns = "INSERT INTO campos_comuns (
+                uso_cosmetico,
+                diureticos,
+                litros_agua,
+                qualidade_sono,
+                alimentacao_detalhada,
+                medicacao,
+                trombose,
+                diabetes,
+                cliente)
+                VALUES (?,?,?,?,?,?,?,?,?)";
+
+            $update = $conn->prepare("UPDATE clientes SET status_comuns = 1 WHERE cpf = ?");
+            $update->bind_param("s", $cpf);
+            $update->execute();
+        } else {
+            $sql_campos_comuns = "UPDATE campos_comuns SET
+                uso_cosmetico = ?,
+                diureticos = ?,
+                litros_agua = ?,
+                qualidade_sono = ?,
+                alimentacao_detalhada = ?,
+                medicacao = ?,
+                trombose = ?,
+                diabetes = ?
+                WHERE cliente = ?";
+        }
         $stmt_campos_comuns = $conn->prepare($sql_campos_comuns);
 
         if ($stmt_campos_comuns) {
             $stmt_campos_comuns->bind_param(
                 "sssssssss",
-                $cpf,
                 $uso_cosmetico,
                 $diureticos,
                 $litros_agua,
@@ -176,7 +195,8 @@ WHERE cliente = ?";
                 $alimentacao_detalhada,
                 $medicacao,
                 $trombose,
-                $diabetes
+                $diabetes,
+                $cpf
             );
         } else {
             echo "Erro ao preparar statement: " . $conn->error;
@@ -186,8 +206,11 @@ WHERE cliente = ?";
     }
 }
 
-if ($stmt->execute() && $stmt_campos_comuns->execute()) {
-    if ($status === 0) {
+$executou_principal = $stmt->execute();
+$executou_campos = $stmt_campos_comuns ? $stmt_campos_comuns->execute() : true;
+
+if ($executou_principal && $executou_campos) {
+    if ($status == 0) {
         $update = $conn->prepare("UPDATE clientes SET status_ficha_corporal = 1 WHERE cpf = ?");
         $update->bind_param("s", $cpf);
         $update->execute();

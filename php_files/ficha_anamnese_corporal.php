@@ -2,13 +2,21 @@
 include("conexao_db.php");
 $cpf_sql =  $_POST["cpf_corporal"];
 
-$sql = "SELECT * 
+$sql = "
+SELECT ficha_anamnese_corporal.*, campos_comuns.*
+FROM ficha_anamnese_corporal
+LEFT JOIN campos_comuns ON ficha_anamnese_corporal.cliente = campos_comuns.cliente
+WHERE ficha_anamnese_corporal.cliente = ?
+
+UNION ALL
+
+SELECT ficha_anamnese_corporal.*, campos_comuns.*
 FROM campos_comuns
-LEFT JOIN ficha_anamnese_corporal 
-ON ficha_anamnese_corporal.cliente = campos_comuns.cliente
-WHERE campos_comuns.cliente = ?";
+LEFT JOIN ficha_anamnese_corporal ON campos_comuns.cliente = ficha_anamnese_corporal.cliente
+WHERE campos_comuns.cliente = ?;
+";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $cpf_sql);
+$stmt->bind_param("ss", $cpf_sql, $cpf_sql);
 $stmt->execute();
 $resultado = $stmt->get_result();
 $linha = $resultado->fetch_assoc();
@@ -44,19 +52,8 @@ $linha = $resultado->fetch_assoc();
                 <table class="ficha-table">
                     <tbody>
                         <tr>
-                            <td>
-                                <p>Faz uso de cosméticos?</p>
-                            </td>
-                            <td>
-                                <div class="grupo_radio">
-                                    <label>
-                                        <input type="radio" name="uso_cosmetico" value="sim" <?= isset($linha['uso_cosmetico']) && $linha['uso_cosmetico'] === 'sim' ? 'checked' : '' ?> required> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="uso_cosmetico" value="nao" <?= isset($linha['uso_cosmetico']) && $linha['uso_cosmetico'] === 'nao' ? 'checked' : '' ?> required> Não
-                                    </label>
-                                </div>
-                            </td>
+                            <td><label>Descreva detalhadamente quais <br>são os cosmeticos que você <br>utiliza / já utilizou: </label></td>
+                            <td><textarea name="uso_cosmetico" maxlength="300"><?= isset($linha['uso_cosmetico']) ? $linha['uso_cosmetico'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -79,10 +76,10 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
-                            <td><input type="text"  name="litros_agua" required value="<?= isset($linha['litros_agua']) ? $linha['litros_agua'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" name="litros_agua" required value="<?= isset($linha['litros_agua']) ? $linha['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td><label for="qualidade_sono">Quantas horas de qualidade sono por dia?</label></td>
+                            <td><label for="qualidade_sono">Quantas horas de sono por dia?</label></td>
                             <td><input type="text" name="qualidade_sono" required value="<?= isset($linha['qualidade_sono']) ? $linha['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
