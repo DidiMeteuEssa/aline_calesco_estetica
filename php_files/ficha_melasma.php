@@ -2,9 +2,21 @@
 include("conexao_db.php");
 $cpf_sql_melasma =  $_POST["cpf_melasma"];
 
-$sql_melasma = "SELECT * FROM ficha_melasma WHERE cliente = ?";
+$sql_melasma =
+    "SELECT ficha_melasma.*, campos_comuns.*
+FROM ficha_melasma
+LEFT JOIN campos_comuns ON ficha_melasma.cliente = campos_comuns.cliente
+WHERE ficha_melasma.cliente = ?
+
+UNION ALL
+
+SELECT ficha_melasma.*, campos_comuns.*
+FROM campos_comuns
+LEFT JOIN ficha_melasma ON campos_comuns.cliente = ficha_melasma.cliente
+WHERE campos_comuns.cliente = ?;
+";
 $stmt_melasma = $conn->prepare($sql_melasma);
-$stmt_melasma->bind_param("s", $cpf_sql_melasma);
+$stmt_melasma->bind_param("ss", $cpf_sql_melasma, $cpf_sql_melasma);
 $stmt_melasma->execute();
 $resultado_melasma = $stmt_melasma->get_result();
 $linha_melasma = $resultado_melasma->fetch_assoc();
@@ -143,8 +155,8 @@ if (isset($linha_melasma['data_hoje'])) {
                             <td><textarea name="problemas_saude_melasma" required maxlength="200"><?= isset($linha_melasma['problemas_saude']) ? $linha_melasma['problemas_saude'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
-                            <td><label for="medicacao_melasma">Usa alguma medicação frequente? <br>Há quanto tempo?</label></td>
-                            <td><textarea name="medicacao_melasma" maxlength="300"><?= isset($linha_melasma['medicacao']) ? $linha_melasma['medicacao'] : ''; ?></textarea></td>
+                            <td><label for="medicacao">Usa alguma medicação frequente? <br>Há quanto tempo?</label></td>
+                            <td><textarea name="medicacao" maxlength="300"><?= isset($linha_melasma['medicacao']) ? $linha_melasma['medicacao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -158,22 +170,22 @@ if (isset($linha_melasma['data_hoje'])) {
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="normal" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'normal' ? 'checked' : '' ?> required> Normal
+                                        <input type="radio" name="tipo_pele" value="normal" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'normal' ? 'checked' : '' ?> required> Normal
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="mista" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'mista' ? 'checked' : '' ?> required> Mista
+                                        <input type="radio" name="tipo_pele" value="mista" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'mista' ? 'checked' : '' ?> required> Mista
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="seca" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'seca' ? 'checked' : '' ?> required> Seca
+                                        <input type="radio" name="tipo_pele" value="seca" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'seca' ? 'checked' : '' ?> required> Seca
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="oleosa" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'oleosa' ? 'checked' : '' ?> required> Oleosa
+                                        <input type="radio" name="tipo_pele" value="oleosa" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'oleosa' ? 'checked' : '' ?> required> Oleosa
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="sensivel" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'sensivel' ? 'checked' : '' ?> required> Sensível
+                                        <input type="radio" name="tipo_pele" value="sensivel" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'sensivel' ? 'checked' : '' ?> required> Sensível
                                     </label>
                                     <label>
-                                        <input type="radio" name="tipo_pele_melasma" value="acneia" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'acneia' ? 'checked' : '' ?> required> Acneia
+                                        <input type="radio" name="tipo_pele" value="acneia" <?= isset($linha_melasma['tipo_pele']) && $linha_melasma['tipo_pele'] === 'acneia' ? 'checked' : '' ?> required> Acneia
                                     </label>
                                 </div>
                             </td>
@@ -185,22 +197,22 @@ if (isset($linha_melasma['data_hoje'])) {
                             <td>
                                 <div class="grupo_radio">
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="i" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'i' ? 'checked' : '' ?> required> I
+                                        <input type="radio" name="fototipo" value="i" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'i' ? 'checked' : '' ?> required> I
                                     </label>
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="ii" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'ii' ? 'checked' : '' ?> required> II
+                                        <input type="radio" name="fototipo" value="ii" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'ii' ? 'checked' : '' ?> required> II
                                     </label>
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="iii" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'iii' ? 'checked' : '' ?> required> III
+                                        <input type="radio" name="fototipo" value="iii" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'iii' ? 'checked' : '' ?> required> III
                                     </label>
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="iv" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'iv' ? 'checked' : '' ?> required> IV
+                                        <input type="radio" name="fototipo" value="iv" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'iv' ? 'checked' : '' ?> required> IV
                                     </label>
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="v" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'v' ? 'checked' : '' ?> required> V
+                                        <input type="radio" name="fototipo" value="v" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'v' ? 'checked' : '' ?> required> V
                                     </label>
                                     <label>
-                                        <input type="radio" name="fototipo_melasma" value="vi" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'vi' ? 'checked' : '' ?> required> VI
+                                        <input type="radio" name="fototipo" value="vi" <?= isset($linha_melasma['fototipo']) && $linha_melasma['fototipo'] === 'vi' ? 'checked' : '' ?> required> VI
                                     </label>
                                 </div>
                             </td>
@@ -248,8 +260,8 @@ if (isset($linha_melasma['data_hoje'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="nivel_exposicao_radiacao_melasma">Nível de exposição a <br> radiações durante o dia:</label></td>
-                            <td><input type="text" name="nivel_exposicao_radiacao_melasma" value="<?= isset($linha_melasma['nivel_exposicao_radiacao'])  ? $linha_melasma['nivel_exposicao_radiacao'] : '' ?>" required style="width: 40rem;"></td>
+                            <td><label for="nivel_exposicao_radiacao">Nível de exposição a <br> radiações durante o dia:</label></td>
+                            <td><input type="text" name="nivel_exposicao_radiacao" value="<?= isset($linha_melasma['nivel_exposicao_radiacao'])  ? $linha_melasma['nivel_exposicao_radiacao'] : '' ?>" required style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="temperatura_media_melasma">Temperatura media de <br> onde mora / trabalha:</label></td>
@@ -261,8 +273,8 @@ if (isset($linha_melasma['data_hoje'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="tratamentos_ja_realizou_melasma">Descreva todos os tratamentos <br>prévios que já realizou (em <br>detalhes do que foi feito e de <br>como foi o pós, em casa e a recuperação): </label></td>
-                            <td><textarea name="tratamentos_ja_realizou_melasma" required maxlength="500"><?= isset($linha_melasma['tratamentos_ja_realizou']) ? $linha_melasma['tratamentos_ja_realizou'] : ''; ?></textarea></td>
+                            <td><label for="tratamento_realizou">Descreva todos os tratamentos <br>prévios que já realizou (em <br>detalhes do que foi feito e de <br>como foi o pós, em casa e <br> a recuperação): </label></td>
+                            <td><textarea name="tratamento_realizou" required maxlength="500"><?= isset($linha_melasma['tratamento_realizou']) ? $linha_melasma['tratamento_realizou'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -296,20 +308,20 @@ if (isset($linha_melasma['data_hoje'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="alimentacao_detalhada_melasma">Alimentação detalhada: </label></td>
-                            <td><textarea name="alimentacao_detalhada_melasma" required maxlength="300"><?= isset($linha_melasma['alimentacao_detalhada']) ? $linha_melasma['alimentacao_detalhada'] : ''; ?></textarea></td>
+                            <td><label for="alimentacao_detalhada">Alimentação detalhada: </label></td>
+                            <td><textarea name="alimentacao_detalhada" required maxlength="300"><?= isset($linha_melasma['alimentacao_detalhada']) ? $linha_melasma['alimentacao_detalhada'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
-                            <td><label for="qtde_agua_melasma">Quantos litros de água consome por dia:</label></td>
-                            <td><input type="text" name="qtde_agua_melasma" required value="<?= isset($linha_melasma['qtde_agua'])  ? $linha_melasma['qtde_agua'] : '' ?>" required style="width: 40rem;"></td>
+                            <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
+                            <td><input type="text" name="litros_agua" required value="<?= isset($linha_melasma['litros_agua']) ? $linha_melasma['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td><label for="ingere_diuretico_melasma">Ingere algum líquido diurético?</label></td>
-                            <td><input type="text" name="ingere_diuretico_melasma" required placeholder="Bebida alcoólica, chás diuréticos, chimarrão..." value="<?= isset($linha_melasma['ingere_diuretico'])  ? $linha_melasma['ingere_diuretico'] : '' ?>" required style="width: 40rem;"></td>
+                            <td><label for="diureticos">Ingere algum líquido diurético?</label></td>
+                            <td><input type="text" name="diureticos" required placeholder="Bebida alcoólica, chás diuréticos, chimarrão..." value="<?= isset($linha_melasma['diureticos']) ? $linha_melasma['diureticos'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
-                            <td><label for="sono_melasma">Quantas horas de sono por dia?</label></td>
-                            <td><input type="text" name="sono_melasma" required value="<?= isset($linha_melasma['sono'])  ? $linha_melasma['sono'] : '' ?>" required style="width: 40rem;"></td>
+                            <td><label for="qualidade_sono">Quantas horas de sono por dia?</label></td>
+                            <td><input type="text" name="qualidade_sono" required value="<?= isset($linha_melasma['qualidade_sono']) ? $linha_melasma['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="exercicios_melasma">Você pratica alguma atividade física?</label></td>
@@ -331,8 +343,8 @@ if (isset($linha_melasma['data_hoje'])) {
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="funcionamento_intestinal_melasma">Funcionamento intestinal:</label></td>
-                            <td><textarea name="funcionamento_intestinal_melasma" required maxlength="300"><?= isset($linha_melasma['funcionamento_intestinal']) ? $linha_melasma['funcionamento_intestinal'] : ''; ?></textarea></td>
+                            <td><label for="intestino">Funcionamento intestinal:</label></td>
+                            <td><textarea name="intestino" required maxlength="300"><?= isset($linha_melasma['intestino']) ? $linha_melasma['intestino'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">

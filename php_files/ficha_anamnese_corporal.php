@@ -2,8 +2,7 @@
 include("conexao_db.php");
 $cpf_sql =  $_POST["cpf_corporal"];
 
-$sql = "
-SELECT ficha_anamnese_corporal.*, campos_comuns.*
+$sql = "SELECT ficha_anamnese_corporal.*, campos_comuns.*
 FROM ficha_anamnese_corporal
 LEFT JOIN campos_comuns ON ficha_anamnese_corporal.cliente = campos_comuns.cliente
 WHERE ficha_anamnese_corporal.cliente = ?

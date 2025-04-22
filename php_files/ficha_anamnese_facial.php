@@ -2,8 +2,7 @@
 include("conexao_db.php");
 $cpf_sql_facial =  $_POST["cpf_facial"];
 
-$sql_facial = "
-SELECT ficha_anamnese_facial.*, campos_comuns.*
+$sql_facial = "SELECT ficha_anamnese_facial.*, campos_comuns.*
 FROM ficha_anamnese_facial
 LEFT JOIN campos_comuns ON ficha_anamnese_facial.cliente = campos_comuns.cliente
 WHERE ficha_anamnese_facial.cliente = ?
