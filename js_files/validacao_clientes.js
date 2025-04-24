@@ -33,7 +33,7 @@ function validarCampos(opr) {
 
     if(ano - ano_nasc !== idade && (ano - ano_nasc) - 1 !== idade)
     {
-        alert("A idade não condiz com o a data de nascimento.");
+        alert("A idade não condiz com a data de nascimento.");
         document.getElementById("idade").focus();
         return false;
     }
@@ -62,14 +62,6 @@ function validarCampos(opr) {
         return false;
     }
 
-    if (opr==1) {
-        alert("Cadastro realizada com sucesso!");
-    }
-
-    if(opr == 2) {
-        alert("Alteração realizada com sucesso!");
-    }
-    
     return true;
 }
 
