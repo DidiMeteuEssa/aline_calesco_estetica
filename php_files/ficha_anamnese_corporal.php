@@ -46,8 +46,9 @@ $linha = $resultado->fetch_assoc();
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_corporal"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
-            <form method="post" action="opr_ficha_anamnese_corporal.php" class="ficha-form" onsubmit="return msgSucesso()">
+            <form method="post" action="opr_fichas.php" class="ficha-form" onsubmit="return msgSucesso()">
                 <input type="hidden" name="cpf_ficha_corporal" value="<?= $_POST["cpf_corporal"]; ?>">
+                <input type="hidden" name="opr" value="1">
                 <table class="ficha-table">
                     <tbody>
                         <tr>

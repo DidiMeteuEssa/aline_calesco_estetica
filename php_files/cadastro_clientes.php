@@ -19,7 +19,8 @@
     <main>
         <h2>Cadastro de Clientes / <a href="../index.php">VOLTAR</a></h2>
         <section class="data">
-            <form method="post" action="opr_cadastro_clientes.php" class="data-form" onsubmit="return validarCampos(1)">
+            <form method="post" action="opr_clientes.php" class="data-form" onsubmit="return validarCampos(1)">
+                <input type="hidden" name="opr_cliente" value="1">
                 <table class="data-table">
                     <tbody>
                         <tr>

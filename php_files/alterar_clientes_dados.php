@@ -24,7 +24,8 @@ $data_br = date('d/m/Y', strtotime($data_mysql));
     <main>
         <h2>Alteração de Clientes / <a href="alterar_clientes.php">VOLTAR</a></h2>
         <section class="data">
-            <form method="post" action="opr_alterar_clientes.php" class="data-form" onsubmit="return validarCampos(2)">
+            <form method="post" action="opr_clientes.php" class="data-form" onsubmit="return validarCampos(2)">
+                <input type="hidden" name="opr_cliente" value="2">
                 <input type="hidden" name="cpf_anterior" value="<?= $_POST["cpf_lista"]; ?>">
                 <table class="data-table">
                     <tbody>

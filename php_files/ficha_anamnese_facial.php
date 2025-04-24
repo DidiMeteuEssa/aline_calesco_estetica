@@ -71,8 +71,9 @@ if (isset($linha_facial['pelos'])) {
             <input type="text" name="exibir_nome_cliente" value="<?= $_POST["cpf_facial"]; ?>" disabled>
         </section>
         <section class="ficha_dados">
-            <form method="post" action="opr_ficha_anamnese_facial.php" class="ficha-form" onsubmit="return msgSucesso()">
+        <form method="post" action="opr_fichas.php" class="ficha-form" onsubmit="return msgSucesso()">
                 <input type="hidden" name="cpf_ficha_facial" value="<?= $_POST["cpf_facial"]; ?>">
+                <input type="hidden" name="opr" value="2">
                 <table class="ficha-table">
 
                     <tbody>
