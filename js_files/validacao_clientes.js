@@ -62,14 +62,6 @@ function validarCampos(opr) {
         return false;
     }
 
-    if (opr==1) {
-        alert("Cadastro realizada com sucesso!");
-    }
-
-    if(opr == 2) {
-        alert("Alteração realizada com sucesso!");
-    }
-    
     return true;
 }
 
