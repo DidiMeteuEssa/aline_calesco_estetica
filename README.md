@@ -5,4 +5,4 @@ English:
 This is a web application developed to help an esthetician better manage her clients and their corresponding clinical records. A log-in system was not implemented, as only the esthetician will be using it. This project was developed using HTML5, CSS3, JavaScript, PHP8, and a MySQL database.
 
 Você pode visualizar um preview interativo deste projeto pelo link: / You can view an interactive preview of this project at the link:
-<a href="https://aline-calesco-estetica.infinityfreeapp.com" target="_blank">Aline Calesco Estética</a>
+[Aline Calesco Estética](https://aline-calesco-estetica.infinityfreeapp.com)
