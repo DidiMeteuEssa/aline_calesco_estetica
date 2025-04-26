@@ -3,7 +3,7 @@
     padding: 0;
     font-weight: 600;
     color: var(--cor-marrom-claro);
-    
+
 }
 
 :root {
@@ -19,7 +19,6 @@ header {
     padding: 2rem;
     background-color: var(--cor-rosa-claro);
     text-align: center;
-    box-shadow: 0px 3px 12px -4px rgba(0, 0, 0, 0.68);
 }
 
 body {
@@ -64,7 +63,6 @@ a {
     padding: .5rem;
     border-radius: 0.25rem;
     margin-right: 1rem;
-    box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 }
 
 li:hover {
@@ -78,12 +76,28 @@ h2 {
     font-size: 2rem;
 }
 
-h2 > a {
+h2>a {
     text-decoration: underline;
 }
 
+.data-ul li {
+    display: inline-block;
+    padding: 1rem;
+    width: 17.3rem;
+    text-align: left;
+}
+
+.data-ul input {
+    margin-top: 0.3rem;
+}
+
+.data-ul {
+    text-align: center;
+}
+
 .data-table,
-.ficha-table {
+.ficha-table,
+.data-cliente {
     background-color: var(--cor-rosa-claro);
     background-image: url('img/backgorund_ficha.png');
     background-size: cover;
@@ -94,13 +108,18 @@ h2 > a {
     border-radius: 0.5rem;
     font-weight: 600;
     border-spacing: 0 1rem;
-    box-shadow: 4px 3px 12px -4px rgba(0, 0, 0, 0.68);
+}
+
+.data-cliente {
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .data-table input,
 .ficha-form input,
 .filtrar_clientes input,
 .cliente_ficha input,
+.data-ul input,
 button {
     background-color: var(--cor-fundo);
     font-weight: 600;
@@ -119,13 +138,14 @@ button {
     margin-right: 0.2rem;
 }
 
-.fichal-table label + label{
+.fichal-table label+label {
     margin-left: 1rem;
 }
 
 .data-form button,
 .ficha-form button,
-.ficha_melasma-form button {
+.ficha_melasma-form button,
+.enviar {
     display: block;
     background-color: var(--cor-rosa-claro);
     width: 7rem;
@@ -133,10 +153,9 @@ button {
     margin: 0 auto;
     font-size: 1.235rem;
     margin-top: 2rem;
-    box-shadow: 4px 3px 12px -4px rgba(0, 0, 0, 0.68);
 }
 
-button:hover  {
+button:hover {
     background-color: var(--cor-marrom-claro);
     color: var(--cor-fundo);
     cursor: pointer;
@@ -159,7 +178,6 @@ button:hover  {
     width: fit-content;
     margin: 0 auto;
     border-radius: 0.5rem;
-    box-shadow: 4px 3px 12px -4px rgba(0, 0, 0, 0.68);
 }
 
 .filtrar_clientes h3,
@@ -184,6 +202,7 @@ button:hover  {
 .opcao_procedimento,
 .filtrar_clientes,
 .cliente_ficha,
+.data-cliente,
 h2 {
     margin-top: 4rem;
 }
@@ -206,7 +225,7 @@ h2 {
     height: 3rem;
 }
 
-.ficha-table + .ficha-table {
+.ficha-table+.ficha-table {
     margin-left: 1rem;
 }
 
@@ -236,8 +255,9 @@ h2 {
     align-items: center;
     gap: 0.25rem;
 }
-.grupo_radio + .grupo_radio,
-.grupo_checkbox + .grupo_checkbox {
+
+.grupo_radio+.grupo_radio,
+.grupo_checkbox+.grupo_checkbox {
     margin-top: 1rem;
 }
 
@@ -269,6 +289,17 @@ footer {
     background-color: var(--cor-rosa-claro);
     text-align: center;
     padding: 2rem;
-    box-shadow: 0px -3px 12px -4px #000000;
     margin-top: 4rem;
 }
+
+header,
+.opcao_procedimento>li,
+.data-table,
+.ficha-table,
+.data-cliente,
+.filtrar_clientes,
+.cliente_ficha,
+footer {
+    box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);
+}
+
