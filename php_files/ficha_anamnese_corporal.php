@@ -53,7 +53,7 @@ $linha = $resultado->fetch_assoc();
                     <tbody>
                         <tr>
                             <td><label>Descreva detalhadamente quais <br>são os cosmeticos que você <br>utiliza / já utilizou: </label></td>
-                            <td><textarea name="uso_cosmetico" maxlength="300"><?= isset($linha['uso_cosmetico']) ? $linha['uso_cosmetico'] : ''; ?></textarea></td>
+                            <td><textarea name="uso_cosmetico" maxlength="1000"><?= isset($linha['uso_cosmetico']) ? $linha['uso_cosmetico'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -72,19 +72,19 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="diureticos">Ingere algum líquido diurético?</label></td>
-                            <td><input type="text" name="diureticos" required placeholder="Bebida alcoólica, chás diuréticos, chimarrão..." value="<?= isset($linha['diureticos']) ? $linha['diureticos'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" name="diureticos" placeholder="Bebida alcoólica, chás diuréticos, chimarrão..." value="<?= isset($linha['diureticos']) ? $linha['diureticos'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
-                            <td><input type="text" name="litros_agua" required value="<?= isset($linha['litros_agua']) ? $linha['litros_agua'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" name="litros_agua"  value="<?= isset($linha['litros_agua']) ? $linha['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="qualidade_sono">Quantas horas de sono por dia?</label></td>
-                            <td><input type="text" name="qualidade_sono" required value="<?= isset($linha['qualidade_sono']) ? $linha['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" name="qualidade_sono"  value="<?= isset($linha['qualidade_sono']) ? $linha['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="alimentacao_detalhada">Alimentação detalhada: </label></td>
-                            <td><textarea name="alimentacao_detalhada" required maxlength="300"><?= isset($linha['alimentacao_detalhada']) ? $linha['alimentacao_detalhada'] : ''; ?></textarea></td>
+                            <td><textarea name="alimentacao_detalhada"  maxlength="1000"><?= isset($linha['alimentacao_detalhada']) ? $linha['alimentacao_detalhada'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -126,7 +126,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="medicacao">Usa alguma medicação frequente? <br>Há quanto tempo?</label></td>
-                            <td><textarea name="medicacao" maxlength="300"><?= isset($linha['medicacao']) ? $linha['medicacao'] : ''; ?></textarea></td>
+                            <td><textarea name="medicacao" maxlength="500"><?= isset($linha['medicacao']) ? $linha['medicacao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -145,11 +145,11 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="quais_suplementos">Quais suplementos?</label></td>
-                            <td><textarea name="quais_suplementos" maxlength="200"><?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?></textarea></td>
+                            <td><textarea name="quais_suplementos" maxlength="500"><?= isset($linha['qual_suplemento_oral']) ? $linha['qual_suplemento_oral'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="trombose">Possui trombose? Qual?</label></td>
-                            <td><textarea name="trombose" maxlength="200"><?= isset($linha['trombose']) ? $linha['trombose'] : ''; ?></textarea></td>
+                            <td><textarea name="trombose" maxlength="500"><?= isset($linha['trombose']) ? $linha['trombose'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -168,7 +168,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="diabetes">Possui diabetes? Qual?</label></td>
-                            <td><textarea name="diabetes" maxlength="200"><?= isset($linha['diabetes']) ? $linha['diabetes'] : ''; ?></textarea></td>
+                            <td><textarea name="diabetes" maxlength="500"><?= isset($linha['diabetes']) ? $linha['diabetes'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -187,7 +187,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_cirurgia">Qual cirurgia?</label></td>
-                            <td><textarea name="qual_cirurgia" maxlength="200"><?= isset($linha['qual_cirurgia_plastica']) ? $linha['qual_cirurgia_plastica'] : ''; ?></textarea></td>
+                            <td><textarea name="qual_cirurgia" maxlength="500"><?= isset($linha['qual_cirurgia_plastica']) ? $linha['qual_cirurgia_plastica'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -196,7 +196,7 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="queixa_alopecia">Queixa principal</label></td>
-                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="500"><?= isset($linha['queixa_alopecia']) ? $linha['queixa_alopecia'] : ''; ?></textarea></td>
+                            <td><textarea name="queixa_alopecia" id="queixa_alopecia" maxlength="1000"><?= isset($linha['queixa_alopecia']) ? $linha['queixa_alopecia'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -215,11 +215,11 @@ $linha = $resultado->fetch_assoc();
                         </tr>
                         <tr>
                             <td><label for="qual_parte_corpo">Quais partes do corpo?</label></td>
-                            <td><textarea name="qual_parte_corpo" maxlength="200"><?= isset($linha['qual_doenca_acomete_corpo']) ? $linha['qual_doenca_acomete_corpo'] : ''; ?></textarea></td>
+                            <td><textarea name="qual_parte_corpo" maxlength="500"><?= isset($linha['qual_doenca_acomete_corpo']) ? $linha['qual_doenca_acomete_corpo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="tempo_disfuncao">Há quanto começou essa disfunção?</label></td>
-                            <td><textarea name="tempo_disfuncao" maxlength="200"><?= isset($linha['tempo_disfuncao']) ? $linha['tempo_disfuncao'] : ''; ?></textarea></td>
+                            <td><textarea name="tempo_disfuncao" maxlength="500"><?= isset($linha['tempo_disfuncao']) ? $linha['tempo_disfuncao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -258,6 +258,9 @@ $linha = $resultado->fetch_assoc();
             return true
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-textarea-counter/0.3.1/jquery.textarea-counter.min.js"></script>
+    <script src="../js_files/contadorCaractere.js"></script>
 </body>
 
 </html>

@@ -208,9 +208,18 @@ h2 {
     margin-top: 4rem;
 }
 
+.contador {
+    position: absolute;
+    bottom: .5rem;
+    right: 1.4rem;
+    font-size: 12px;
+    color: #555;
+}
+
 .data-table td,
 .ficha-table td {
     padding: 0 1rem;
+    position: relative;
 }
 
 .cliente_ficha {
@@ -272,6 +281,10 @@ textarea {
     border: 2px solid var(--cor-marrom-claro);
     border-radius: 0.5rem;
     resize: none;
+}
+
+textarea[maxlength="1000"] {
+    height: 11.3rem;
 }
 
 textarea[maxlength="500"] {

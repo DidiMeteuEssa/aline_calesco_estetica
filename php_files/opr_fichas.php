@@ -637,7 +637,6 @@ intestino
     $casada_melasma = $_POST["casada_melasma"];
     $casamento_saudavel_melasma = $_POST["casamento_saudavel_melasma"];
     $queixa_principal_melasma = $_POST["queixa_principal_melasma"];
-    $tempo_percebeu_melasma = $_POST["tempo_percebeu_melasma"];
     $tempo_percebeu_manchas_melasma = $_POST["tempo_percebeu_manchas_melasma"];
     $tratou_melasma_melasma = $_POST["tratou_melasma_melasma"];
     $uso_acido_melasma = $_POST["uso_acido_melasma"];
@@ -670,7 +669,7 @@ intestino
 
     if ($status_melasma == 1) {
         $sql = "UPDATE ficha_melasma SET 
-        data_hoje=?, como_conheceu_trabalho=?, filhos=?, casada=?, casamento_saudavel=?, queixa_principal=?, tempo_percebeu=?, tempo_percebeu_manchas=?,
+        data_hoje=?, como_conheceu_trabalho=?, filhos=?, casada=?, casamento_saudavel=?, queixa_principal=?, tempo_percebeu_manchas=?,
         tratou_melasma=?, uso_acido=?, problemas_saude=?, tipo_melanina=?, reacao_sol=?, temperatura_media=?, uso_cosmetico_rotina_skincare=?, rotina_dia=?, 
         rotina_noite=?, exercicios=?, usa_secador_chapinha=?, concorda_troca=?, indicacao_plano_tratamento=?, indicacao_skin_care=?,
         indicacao_equipe_multidisciplinar=?, indicacao_nutraceticos_orais=?, pontos_acordados=?, constatacao_raiz_problema=?
@@ -680,14 +679,13 @@ intestino
 
         if ($stmt) {
             $stmt->bind_param(
-                "sssssssssssssssssssssssssss",
+                "ssssssssssssssssssssssssss",
                 $data_mysql_melasma,
                 $como_conheceu_trabalho_melasma,
                 $filhos_melasma,
                 $casada_melasma,
                 $casamento_saudavel_melasma,
                 $queixa_principal_melasma,
-                $tempo_percebeu_melasma,
                 $tempo_percebeu_manchas_melasma,
                 $tratou_melasma_melasma,
                 $uso_acido_melasma,
@@ -749,17 +747,17 @@ intestino
     } else {
 
         $sql = "INSERT INTO ficha_melasma (
-        cliente, data_hoje, como_conheceu_trabalho, filhos, casada, casamento_saudavel, queixa_principal, tempo_percebeu, tempo_percebeu_manchas,
+        cliente, data_hoje, como_conheceu_trabalho, filhos, casada, casamento_saudavel, queixa_principal, tempo_percebeu_manchas,
         tratou_melasma, uso_acido, problemas_saude, tipo_melanina, reacao_sol, temperatura_media, uso_cosmetico_rotina_skincare, rotina_dia, 
         rotina_noite, exercicios, usa_secador_chapinha, concorda_troca, indicacao_plano_tratamento, indicacao_skin_care,
         indicacao_equipe_multidisciplinar, indicacao_nutraceticos_orais, pontos_acordados, constatacao_raiz_problema) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
             $stmt->bind_param(
-                "sssssssssssssssssssssssssss",
+                "ssssssssssssssssssssssssss",
                 $cpf,
                 $data_mysql_melasma,
                 $como_conheceu_trabalho_melasma,
@@ -767,7 +765,6 @@ intestino
                 $casada_melasma,
                 $casamento_saudavel_melasma,
                 $queixa_principal_melasma,
-                $tempo_percebeu_melasma,
                 $tempo_percebeu_manchas_melasma,
                 $tratou_melasma_melasma,
                 $uso_acido_melasma,

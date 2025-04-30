@@ -84,7 +84,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="queixa_facial">Queixa principal</label></td>
-                            <td><textarea name="queixa_facial" maxlength="500"><?= isset($linha_facial['queixa_principal']) ? $linha_facial['queixa_principal'] : ''; ?></textarea></td>
+                            <td><textarea name="queixa_facial" maxlength="1000"><?= isset($linha_facial['queixa_principal']) ? $linha_facial['queixa_principal'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -93,7 +93,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="tratamento_realizou">Descreva todos os tratamentos <br>prévios que já realizou (em <br>detalhes do que foi feito e de <br>como foi o pós, em casa e <br> a recuperação): </label></td>
-                            <td><textarea name="tratamento_realizou" required maxlength="500"><?= isset($linha_facial['tratamento_realizou']) ? $linha_facial['tratamento_realizou'] : ''; ?></textarea></td>
+                            <td><textarea name="tratamento_realizou" maxlength="1000"><?= isset($linha_facial['tratamento_realizou']) ? $linha_facial['tratamento_realizou'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -142,15 +142,15 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="qual_contraceptivo_facial">Quais contraceptivos?</label></td>
-                            <td><textarea name="qual_contraceptivo_facial" maxlength="200"><?= isset($linha_facial['qual_contraceptivo']) ? $linha_facial['qual_contraceptivo'] : ''; ?></textarea></td>
+                            <td><textarea name="qual_contraceptivo_facial" maxlength="500"><?= isset($linha_facial['qual_contraceptivo']) ? $linha_facial['qual_contraceptivo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>
-                            <td><input type="text" name="litros_agua" required value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" name="litros_agua" maxlength="500" value="<?= isset($linha_facial['litros_agua']) ? $linha_facial['litros_agua'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td><label for="alimentacao_detalhada">Alimentação detalhada: </label></td>
-                            <td><textarea name="alimentacao_detalhada" required maxlength="300"><?= isset($linha_facial['alimentacao_detalhada']) ? $linha_facial['alimentacao_detalhada'] : ''; ?></textarea></td>
+                            <td><textarea name="alimentacao_detalhada" maxlength="1000"><?= isset($linha_facial['alimentacao_detalhada']) ? $linha_facial['alimentacao_detalhada'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -169,11 +169,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="intestino">Funcionamento intestinal:</label></td>
-                            <td><textarea name="intestino" required maxlength="300"><?= isset($linha_facial['intestino']) ? $linha_facial['intestino'] : ''; ?></textarea></td>
+                            <td><textarea name="intestino" maxlength="500"><?= isset($linha_facial['intestino']) ? $linha_facial['intestino'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="qualidade_sono">Quantas horas de sono por dia?</label></td>
-                            <td><input type="text" name="qualidade_sono" required value="<?= isset($linha_facial['qualidade_sono']) ? $linha_facial['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
+                            <td><input type="text" maxlength="500" name="qualidade_sono" value="<?= isset($linha_facial['qualidade_sono']) ? $linha_facial['qualidade_sono'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td>
@@ -241,11 +241,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="medicacao">Usa alguma medicação frequente? <br>Há quanto tempo?</label></td>
-                            <td><textarea name="medicacao" maxlength="300"><?= isset($linha_facial['medicacao']) ? $linha_facial['medicacao'] : ''; ?></textarea></td>
+                            <td><textarea name="medicacao" maxlength="500"><?= isset($linha_facial['medicacao']) ? $linha_facial['medicacao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label>Descreva detalhadamente quais <br>são os cosmeticos que você <br>utiliza / já utilizou: </label></td>
-                            <td><textarea name="uso_cosmetico" maxlength="300"><?= isset($linha_facial['uso_cosmetico']) ? $linha_facial['uso_cosmetico'] : ''; ?></textarea></td>
+                            <td><textarea name="uso_cosmetico" maxlength="1000"><?= isset($linha_facial['uso_cosmetico']) ? $linha_facial['uso_cosmetico'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -264,7 +264,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="botox_local_tempo_facial">Qual local, <p>ha quanto tempo?</p></label>
-                            <td><textarea name="botox_local_tempo_facial" maxlength="200"><?= isset($linha_facial['botox_local_tempo']) ? $linha_facial['botox_local_tempo'] : ''; ?></textarea></td>
+                            <td><textarea name="botox_local_tempo_facial" maxlength="500"><?= isset($linha_facial['botox_local_tempo']) ? $linha_facial['botox_local_tempo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -283,7 +283,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="trombose">Possui trombose? Qual?</label></td>
-                            <td><textarea name="trombose" maxlength="200"><?= isset($linha_facial['trombose']) ? $linha_facial['trombose'] : ''; ?></textarea></td>
+                            <td><textarea name="trombose" maxlength="500"><?= isset($linha_facial['trombose']) ? $linha_facial['trombose'] : ''; ?></textarea></td>
                         </tr>
                         </tr>
                         <tr>
@@ -303,7 +303,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="protetor_solar_qual_freq_facial">Qual protetor, <p>qual frequência?</p></label>
-                            <td><textarea name="protetor_solar_qual_freq_facial" maxlength="200"><?= isset($linha_facial['protetor_solar_qual_freq']) ? $linha_facial['protetor_solar_qual_freq'] : ''; ?></textarea></td>
+                            <td><textarea name="protetor_solar_qual_freq_facial" maxlength="500"><?= isset($linha_facial['protetor_solar_qual_freq']) ? $linha_facial['protetor_solar_qual_freq'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -322,11 +322,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="quais_alergias_facial">Quais alergias?</label>
-                            <td><textarea name="quais_alergias_facial" maxlength="200"><?= isset($linha_facial['quais_alergias']) ? $linha_facial['quais_alergias'] : ''; ?></textarea></td>
+                            <td><textarea name="quais_alergias_facial" maxlength="500"><?= isset($linha_facial['quais_alergias']) ? $linha_facial['quais_alergias'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="nivel_exposicao_radiacao">Nível de exposição a <br> radiações durante o dia:</label></td>
-                            <td><input type="text" name="nivel_exposicao_radiacao" value="<?= isset($linha_facial['nivel_exposicao_radiacao'])  ? $linha_facial['nivel_exposicao_radiacao'] : '' ?>" required style="width: 40rem;"></td>
+                            <td><input type="text" maxlength="500" name="nivel_exposicao_radiacao" value="<?= isset($linha_facial['nivel_exposicao_radiacao'])  ? $linha_facial['nivel_exposicao_radiacao'] : '' ?>" style="width: 40rem;"></td>
                         </tr>
                         <tr>
                             <td>
@@ -345,11 +345,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="qual_disturbio_facial">Quais disturbios?</label>
-                            <td><textarea name="qual_disturbio_facial" maxlength="200"><?= isset($linha_facial['qual_disturbio']) ? $linha_facial['qual_disturbio'] : ''; ?></textarea></td>
+                            <td><textarea name="qual_disturbio_facial" maxlength="500"><?= isset($linha_facial['qual_disturbio']) ? $linha_facial['qual_disturbio'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="problemas_cardiacos">Problemas cardíacos: </label></td>
-                            <td><textarea name="problemas_cardiacos" required maxlength="200"><?= isset($linha_facial['problemas_cardiacos']) ? $linha_facial['problemas_cardiacos'] : ''; ?></textarea></td>
+                            <td><textarea name="problemas_cardiacos" maxlength="500"><?= isset($linha_facial['problemas_cardiacos']) ? $linha_facial['problemas_cardiacos'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -368,7 +368,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="diabetes">Possui diabetes? Qual?</label></td>
-                            <td><textarea name="diabetes" maxlength="200"><?= isset($linha_facial['diabetes']) ? $linha_facial['diabetes'] : ''; ?></textarea></td>
+                            <td><textarea name="diabetes" maxlength="500"><?= isset($linha_facial['diabetes']) ? $linha_facial['diabetes'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -489,11 +489,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="goglau_estatica_facial">Tipo estática:</label>
-                            <td><textarea name="goglau_estatica_facial" maxlength="200"><?= isset($linha_facial['goglau_estatica']) ? $linha_facial['goglau_estatica'] : ''; ?></textarea></td>
+                            <td><textarea name="goglau_estatica_facial" maxlength="500"><?= isset($linha_facial['goglau_estatica']) ? $linha_facial['goglau_estatica'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="goglau_dinamica_facial">Tipo dinâmica:</label>
-                            <td><textarea name="goglau_dinamica_facial" maxlength="200"><?= isset($linha_facial['goglau_dinamica']) ? $linha_facial['goglau_dinamica'] : ''; ?></textarea></td>
+                            <td><textarea name="goglau_dinamica_facial" maxlength="500"><?= isset($linha_facial['goglau_dinamica']) ? $linha_facial['goglau_dinamica'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -860,7 +860,7 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="observacao_olheiras_facial">Observação olheiras</label>
-                            <td><textarea name="observacao_olheiras_facial" maxlength="200"><?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?></textarea></td>
+                            <td><textarea name="observacao_olheiras_facial" maxlength="1000"><?= isset($linha_facial['observacao_olheiras']) ? $linha_facial['observacao_olheiras'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
@@ -869,11 +869,11 @@ if (isset($linha_facial['pelos'])) {
                         </tr>
                         <tr>
                             <td><label for="video_foto_facial">Vídeo câmera / foto</label></td>
-                            <td><textarea name="video_foto_facial" maxlength="500"><?= isset($linha_facial['video_foto']) ? $linha_facial['video_foto'] : ''; ?></textarea></td>
+                            <td><textarea name="video_foto_facial" maxlength="1000"><?= isset($linha_facial['video_foto']) ? $linha_facial['video_foto'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="protocolo_facial">Protocolo de tratamento facial:</label></td>
-                            <td><textarea name="protocolo_facial" maxlength="500"><?= isset($linha_facial['protocolo']) ? $linha_facial['protocolo'] : ''; ?></textarea></td>
+                            <td><textarea name="protocolo_facial" maxlength="1000"><?= isset($linha_facial['protocolo']) ? $linha_facial['protocolo'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>
@@ -946,6 +946,9 @@ if (isset($linha_facial['pelos'])) {
             return true
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-textarea-counter/0.3.1/jquery.textarea-counter.min.js"></script>
+    <script src="../js_files/contadorCaractere.js"></script>
 </body>
 
 </html>
