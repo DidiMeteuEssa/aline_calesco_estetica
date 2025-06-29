@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Tempo de geração: 30/04/2025 às 16:39
+-- Host: 127.0.0.1
+-- Tempo de geração: 29/06/2025 às 22:13
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `campos_comuns` (
 --
 
 INSERT INTO `campos_comuns` (`id`, `cliente`, `uso_cosmetico`, `qualidade_sono`, `litros_agua`, `diureticos`, `diabetes`, `medicacao`, `tratamento_realizou`, `intestino`, `fototipo`, `tipo_pele`, `alimentacao_detalhada`, `trombose`, `nivel_exposicao_radiacao`, `problemas_cardiacos`) VALUES
-(4, '203.559.990-30', '', '', '', '', '', '', '', '', 'i', 'normal', '', '', '', '');
+(4, '203.559.990-30', '', 'asd', 'asd', 'asd', '', '1', 'asd', 'asd', 'i', 'normal', '21', '', 'asd', '');
 
 -- --------------------------------------------------------
 
@@ -210,16 +210,23 @@ CREATE TABLE `ficha_melasma` (
   `indicacao_equipe_multidisciplinar` text DEFAULT NULL,
   `indicacao_nutraceticos_orais` text DEFAULT NULL,
   `pontos_acordados` text DEFAULT NULL,
-  `constatacao_raiz_problema` text DEFAULT NULL
+  `constatacao_raiz_problema` text DEFAULT NULL,
+  `relacao_trabalho` text DEFAULT NULL,
+  `relacao_familiares` text DEFAULT NULL,
+  `gosta_onde_mora` text DEFAULT NULL,
+  `saude_emocional` text DEFAULT NULL,
+  `saude_financeira` text DEFAULT NULL,
+  `uso_protetor_solar` varchar(500) DEFAULT NULL,
+  `problemas_hormonais` varchar(500) DEFAULT NULL,
+  `uso_contraceptivos` text DEFAULT NULL,
+  `uso_suplemento` text DEFAULT NULL,
+  `habito_final_de_semana` text DEFAULT NULL,
+  `nivel_transpiracao` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `ficha_melasma`
 --
-
-INSERT INTO `ficha_melasma` (`id`, `cliente`, `data_hoje`, `como_conheceu_trabalho`, `filhos`, `casada`, `casamento_saudavel`, `queixa_principal`, `tempo_percebeu_manchas`, `tratou_melasma`, `uso_acido`, `problemas_saude`, `tipo_melanina`, `reacao_sol`, `temperatura_media`, `uso_cosmetico_rotina_skincare`, `rotina_dia`, `rotina_noite`, `exercicios`, `usa_secador_chapinha`, `concorda_troca`, `indicacao_plano_tratamento`, `indicacao_skin_care`, `indicacao_equipe_multidisciplinar`, `indicacao_nutraceticos_orais`, `pontos_acordados`, `constatacao_raiz_problema`) VALUES
-(3, '203.559.990-30', '2025-04-30', '', 'nao', 'nao', '', '', '', '', '', '', 'feumelanina', 'i', '', 'nao', '', '', '', 'nao', '', '', '', '', '', '', '');
-
 --
 -- Índices para tabelas despejadas
 --
@@ -284,7 +291,7 @@ ALTER TABLE `ficha_anamnese_facial`
 -- AUTO_INCREMENT de tabela `ficha_melasma`
 --
 ALTER TABLE `ficha_melasma`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
