@@ -127,6 +127,26 @@ if (isset($linha_melasma['data_hoje'])) {
                             <td><textarea name="casamento_saudavel_melasma" maxlength="1000"><?= isset($linha_melasma['casamento_saudavel']) ? $linha_melasma['casamento_saudavel'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
+                            <td><label for="relacao_familiares_melasma">Em uma escala de 0 a 10, como <br> você avalia suas relações com familiares?</label></td>
+                            <td><textarea name="relacao_familiares_melasma" maxlength="1000"><?= isset($linha_melasma['relacao_familiares']) ? $linha_melasma['relacao_familiares'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="relacao_trabalho_melasma">Em uma escala de 0 a 10, como <br> você avalia suas relações <br> no ambinte de trabalho?</label></td>
+                            <td><textarea name="relacao_trabalho_melasma" maxlength="1000"><?= isset($linha_melasma['relacao_trabalho']) ? $linha_melasma['relacao_trabalho'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gosta_onde_mora_melasma">Você gosta do lugar onde mora?</label></td>
+                            <td><textarea name="gosta_onde_mora_melasma" maxlength="1000"><?= isset($linha_melasma['gosta_onde_mora']) ? $linha_melasma['gosta_onde_mora'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="saude_emocional_melasma">Como considerea sua saúde emocional?</label></td>
+                            <td><textarea name="saude_emocional_melasma" maxlength="1000"><?= isset($linha_melasma['saude_emocional']) ? $linha_melasma['saude_emocional'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="saude_financeira_melasma">Como considerea sua saúde financeira?</label></td>
+                            <td><textarea name="saude_financeira_melasma" maxlength="1000"><?= isset($linha_melasma['saude_financeira']) ? $linha_melasma['saude_financeira'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
                             <td colspan="2" style="text-align: center; padding-bottom: .5rem">
                                 <h4>QUEIXAS E HISTÓRICO CLÍNICO</h4>
                             </td>
@@ -230,6 +250,10 @@ if (isset($linha_melasma['data_hoje'])) {
                             </td>
                         </tr>
                         <tr>
+                            <td><label for="uso_protetor_solar_melasma">Usa protetor solar?</label></td>
+                            <td><input type="text" maxlength="500" name="uso_protetor_solar_melasma" value="<?= isset($linha_melasma['uso_protetor_solar'])  ? $linha_melasma['uso_protetor_solar'] : '' ?>" style="width: 40rem;"></td>
+                        </tr>
+                        <tr>
                             <td>
                                 <p>Quando você toma Sol, <br>sem protetor solar, sua pele: </p>
                             </td>
@@ -255,6 +279,22 @@ if (isset($linha_melasma['data_hoje'])) {
                                     </label>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <td><label for="problemas_hormonais_melasma">Possui problemas hormonais?</label></td>
+                            <td><input type="text" maxlength="500" name="problemas_hormonais_melasma" value="<?= isset($linha_melasma['problemas_hormonais'])  ? $linha_melasma['problemas_hormonais'] : '' ?>" style="width: 40rem;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="uso_contraceptivos_melasma">Faz uso de contraceptivos? </label></td>
+                            <td><textarea name="uso_contraceptivos_melasma" maxlength="1000"><?= isset($linha_melasma['uso_contraceptivos']) ? $linha_melasma['uso_contraceptivos'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="uso_suplemento_melasma">Usa suplementos?</label></td>
+                            <td><textarea name="uso_suplemento_melasma" maxlength="1000"><?= isset($linha_melasma['uso_suplemento']) ? $linha_melasma['uso_suplemento'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="nivel_transpiracao_melasma">Como descreve o nível de transpiração, <br>aquecimento corporal? <br>Seu rosto fica vermelho?</label></td>
+                            <td><textarea name="nivel_transpiracao_melasma" maxlength="1000"><?= isset($linha_melasma['nivel_transpiracao']) ? $linha_melasma['nivel_transpiracao'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="nivel_exposicao_radiacao">Nível de exposição a <br> radiações durante o dia:</label></td>
@@ -307,6 +347,10 @@ if (isset($linha_melasma['data_hoje'])) {
                         <tr>
                             <td><label for="alimentacao_detalhada">Alimentação detalhada: </label></td>
                             <td><textarea name="alimentacao_detalhada" maxlength="1000"><?= isset($linha_melasma['alimentacao_detalhada']) ? $linha_melasma['alimentacao_detalhada'] : ''; ?></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="habito_final_de_semana_melasma">Você muda seus hábitos nos finais de semana?</label></td>
+                            <td><textarea name="habito_final_de_semana_melasma" maxlength="1000"><?= isset($linha_melasma['habito_final_de_semana']) ? $linha_melasma['habito_final_de_semana'] : ''; ?></textarea></td>
                         </tr>
                         <tr>
                             <td><label for="litros_agua">Quantos litros de água consome por dia:</label></td>

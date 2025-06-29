@@ -3,17 +3,16 @@
 
 $opr = $_POST["opr"];
 
-switch($opr)
-{
+switch ($opr) {
     case '1':
-            opr_corporal();
-            break;
+        opr_corporal();
+        break;
     case '2':
-            opr_facial();
-            break;
+        opr_facial();
+        break;
     case '3':
-            opr_melasma(); 
-            break;
+        opr_melasma();
+        break;
 }
 
 function opr_corporal()
@@ -657,6 +656,17 @@ intestino
     $pontos_acordados_melasma = $_POST["pontos_acordados_melasma"];
     $constatacao_raiz_problema_melasma = $_POST["constatacao_raiz_problema_melasma"];
 
+    $relacao_familiares_melasma = $_POST["relacao_familiares_melasma"];
+    $relacao_trabalho_melasma = $_POST["relacao_trabalho_melasma"];
+    $gosta_onde_mora_melasma = $_POST["gosta_onde_mora_melasma"];
+    $saude_emocional_melasma = $_POST["saude_emocional_melasma"];
+    $saude_financeira_melasma = $_POST["saude_financeira_melasma"];
+    $uso_protetor_solar_melasma = $_POST["uso_protetor_solar_melasma"];
+    $problemas_hormonais_melasma = $_POST["problemas_hormonais_melasma"];
+    $uso_contraceptivos_melasma = $_POST["uso_contraceptivos_melasma"];
+    $uso_suplemento_melasma = $_POST["uso_suplemento_melasma"];
+    $nivel_transpiracao_melasma = $_POST["nivel_transpiracao_melasma"];
+    $habito_final_de_semana_melasma = $_POST["habito_final_de_semana_melasma"];
 
     $sql_status = $conn->prepare("SELECT status_ficha_melasma FROM clientes WHERE cpf = ?");
     $sql_status->bind_param("s", $cpf);
@@ -672,14 +682,16 @@ intestino
         data_hoje=?, como_conheceu_trabalho=?, filhos=?, casada=?, casamento_saudavel=?, queixa_principal=?, tempo_percebeu_manchas=?,
         tratou_melasma=?, uso_acido=?, problemas_saude=?, tipo_melanina=?, reacao_sol=?, temperatura_media=?, uso_cosmetico_rotina_skincare=?, rotina_dia=?, 
         rotina_noite=?, exercicios=?, usa_secador_chapinha=?, concorda_troca=?, indicacao_plano_tratamento=?, indicacao_skin_care=?,
-        indicacao_equipe_multidisciplinar=?, indicacao_nutraceticos_orais=?, pontos_acordados=?, constatacao_raiz_problema=?
+        indicacao_equipe_multidisciplinar=?, indicacao_nutraceticos_orais=?, pontos_acordados=?, constatacao_raiz_problema=?, relacao_familiares=?, 
+        relacao_trabalho=?, gosta_onde_mora=?, saude_emocional=?, saude_financeira=?, uso_protetor_solar=?, problemas_hormonais=?,
+        uso_contraceptivos=?, uso_suplemento=?, nivel_transpiracao=?, habito_final_de_semana=?
         WHERE cliente = ?";
 
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
             $stmt->bind_param(
-                "ssssssssssssssssssssssssss",
+                "sssssssssssssssssssssssssssssssssssss",
                 $data_mysql_melasma,
                 $como_conheceu_trabalho_melasma,
                 $filhos_melasma,
@@ -705,6 +717,17 @@ intestino
                 $indicacao_nutraceticos_orais_melasma,
                 $pontos_acordados_melasma,
                 $constatacao_raiz_problema_melasma,
+                $relacao_familiares_melasma,
+                $relacao_trabalho_melasma,
+                $gosta_onde_mora_melasma,
+                $saude_emocional_melasma,
+                $saude_financeira_melasma,
+                $uso_protetor_solar_melasma,
+                $problemas_hormonais_melasma,
+                $uso_contraceptivos_melasma,
+                $uso_suplemento_melasma,
+                $nivel_transpiracao_melasma,
+                $habito_final_de_semana_melasma,
                 $cpf
             );
 
@@ -750,14 +773,16 @@ intestino
         cliente, data_hoje, como_conheceu_trabalho, filhos, casada, casamento_saudavel, queixa_principal, tempo_percebeu_manchas,
         tratou_melasma, uso_acido, problemas_saude, tipo_melanina, reacao_sol, temperatura_media, uso_cosmetico_rotina_skincare, rotina_dia, 
         rotina_noite, exercicios, usa_secador_chapinha, concorda_troca, indicacao_plano_tratamento, indicacao_skin_care,
-        indicacao_equipe_multidisciplinar, indicacao_nutraceticos_orais, pontos_acordados, constatacao_raiz_problema) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        indicacao_equipe_multidisciplinar, indicacao_nutraceticos_orais, pontos_acordados, constatacao_raiz_problema, relacao_familiares, 
+        relacao_trabalho, gosta_onde_mora, saude_emocional, saude_financeira, uso_protetor_solar, problemas_hormonais,
+        uso_contraceptivos, uso_suplemento, nivel_transpiracao, habito_final_de_semana) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
             $stmt->bind_param(
-                "ssssssssssssssssssssssssss",
+                "sssssssssssssssssssssssssssssssssssss",
                 $cpf,
                 $data_mysql_melasma,
                 $como_conheceu_trabalho_melasma,
@@ -784,6 +809,17 @@ intestino
                 $indicacao_nutraceticos_orais_melasma,
                 $pontos_acordados_melasma,
                 $constatacao_raiz_problema_melasma,
+                $relacao_familiares_melasma,
+                $relacao_trabalho_melasma,
+                $gosta_onde_mora_melasma,
+                $saude_emocional_melasma,
+                $saude_financeira_melasma,
+                $uso_protetor_solar_melasma,
+                $problemas_hormonais_melasma,
+                $uso_contraceptivos_melasma,
+                $uso_suplemento_melasma,
+                $nivel_transpiracao_melasma,
+                $habito_final_de_semana_melasma
             );
 
             $sql_campos_status = $conn->query("SELECT `status_comuns` FROM `clientes` WHERE `cpf` =  '$cpf'");
